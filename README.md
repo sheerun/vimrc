@@ -18,21 +18,28 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
 
 ## Features
 
-* Don't configure if one requests vi-compatible mode.
+* Enable Vim compatible mode.
 * Turn on filetype plugins (:help filetype-plugin).
 * Enable syntax highlighting.
-* Don't scan included files. Tags file is more performant.
+* Don't scan included files. The .tags file is more performant.
 * When inserting paren, jump briefly to matching one.
-* Autoindent when starting new line, or using "o" or "O".
+* Autoindent when starting new line, or using `o` or `O`.
 * Round autoindentation. No one needs 3 spaces when you indent by two.
-* Use 'shiftwidth' when using <Tab> in front of a line.
-  By default it's used only for shift commands ("<", ">").
+* Indent using two spaces.
+* Use 'shiftwidth' when using `<Tab>` in front of a line.
+  By default it's used only for shift commands (`<`, `>`).
 * Disable octal format for number processing.
-* Allow for mappings including Esc, while preserving
-  no timeout after pressing it manually.
-* Enable incremential search.
-* Don't ignore case when search has capital letters.
+* Allow for mappings including `Esc`, while preserving
+  zero timeout after pressing it manually.
+* Enable highlighted case-insensitive incremential search.
+* Don't ignore case when search has capital letters
   (although also don't ignore case by default).
+* Do not wrap lines.
+* Show line numbers on sidebar and statusbar.
+* Don't ask if to safe buffers on close.
+* Disable anoying beeps on errors.
+* Don't parse modelines (for security reasons).
+* Disable auto folding on open.
 * Use <C-L> to clear the highlighting of :set hlsearch.
 * Always show window statuses, even if there's only one.
 * Show the line and column number of the cursor position.
@@ -47,10 +54,16 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
 * Support all kind of EOLs by default.
 * Always save upper case variables to viminfo file.
 * Increase history size to 1000 items.
+* Enable mouse for scrolling and window resizing.
+* For autocompletion, complete as much as you can.
+* Disable output, vcs, archive, rails, temp and backup files.
+* Disable swap to prevent annoying messages.
+* Create and set directories for backup and undo files.
 * Allow color schemes to do bright colors without forcing bold.
 * Hide dotfiles, backup files and tag files by default.
 * Load matchit.vim, but only if the user hasn't installed a newer version.
 * Y yanks from the cursor to the end of line as expected. See :help Y.
+* Add gems.tags to files searched for tags.
 
 See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.
 
