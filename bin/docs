@@ -12,14 +12,23 @@ paragraphs.select! do |paragraph|
   paragraph.last.strip[0] != '"'
 end
 
-comments = paragraphs.map do |paragraph|
-  paragraph.flat_map do |line|
-    line[2..-1].strip if line && line.strip[0] == '"'
-  end.select{ |line| line && line.strip.size > 0 }
-end.reject(&:empty?)
-
-comments.map! do |comment|
-  "* #{comment.join("\n  ")}"
+paragraphs.map! do |paragraph|
+  {
+    comments:
+      paragraph.flat_map do |line|
+        line[2..-1].strip if line && line.strip[0] == '"'
+      end.select{ |line| line && line.strip.size > 0 },
+    source:
+      paragraph.select do |line|
+        line && line.strip[0] != '"' && line.strip.size > 0
+      end
+  }
+end.reject! do |paragraph|
+  paragraph[:comments].empty? || paragraph[:source].empty?
 end
 
-puts comments.join("\n")
+paragraphs.map! do |paragraph|
+  "* #{paragraph[:comments].join("\n  ")}\n  \`\`\`vim\n  #{paragraph[:source].join("  ")}  \`\`\`\n"
+end
+
+puts paragraphs.join("\n")
