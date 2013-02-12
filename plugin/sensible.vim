@@ -2,12 +2,8 @@
 " Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
 " Version:      1.0
 
-" Don't configure if one requests vi-compatible mode.
-if exists('g:loaded_sensible') || &compatible
-  finish
-else
-  let g:loaded_sensible = 1
-endif
+" Enable Vim compatible mode.
+set nocompatible
 
 " Turn on filetype plugins (:help filetype-plugin).
 if has('autocmd')
@@ -15,40 +11,68 @@ if has('autocmd')
 endif
 
 " Enable syntax highlighting.
-if has('syntax') && !exists('g:syntax_on')
+if has('syntax')
   syntax enable
 endif
 
-" Don't scan included files. Tags file is more performant.
+" Don't scan included files. The .tags file is more performant.
 set complete-=i
 
 " When inserting paren, jump briefly to matching one.
 set showmatch
 
-" Autoindent when starting new line, or using "o" or "O".
+" Autoindent when starting new line, or using `o` or `O`.
 set autoindent
 
 " Round autoindentation. No one needs 3 spaces when you indent by two.
 set shiftround
 
-" Use 'shiftwidth' when using <Tab> in front of a line.
-" By default it's used only for shift commands ("<", ">").
+" Indent using two spaces.
+set tabstop=2
+set backspace=2
+set shiftwidth=2
+set expandtab
+
+" Use 'shiftwidth' when using `<Tab>` in front of a line.
+" By default it's used only for shift commands (`<`, `>`).
 set smarttab
 
 " Disable octal format for number processing.
 set nrformats-=octal
 
-" Allow for mappings including Esc, while preserving
-" no timeout after pressing it manually.
+" Allow for mappings including `Esc`, while preserving
+" zero timeout after pressing it manually.
 set ttimeout
 set ttimeoutlen=50
 
-" Enable incremential search.
+" Enable highlighted case-insensitive incremential search.
 set incsearch
+set hlsearch
+set ignorecase
 
-" Don't ignore case when search has capital letters.
+" Don't ignore case when search has capital letters
 " (although also don't ignore case by default).
 set smartcase
+
+" Do not wrap lines.
+set nowrap
+
+" Show line numbers on sidebar and statusbar.
+set number
+
+" Don't ask if to safe buffers on close. 
+set autowrite
+set hidden
+
+" Disable anoying beeps on errors.
+set noerrorbells
+set visualbell
+
+" Don't parse modelines (for security reasons).
+set nomodeline
+
+" Disable auto folding on open.
+set nofoldenable
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -68,24 +92,19 @@ set showcmd
 set wildmenu
 
 " Keep one line above or below the cursor when scrolling.
-if !&scrolloff
-  set scrolloff=1
-endif
+set scrolloff=1
 
 " Keep 5 columns next to the cursor when scrolling horizontally.
-if !&sidescrolloff
-  set sidescrolloff=5
-endif
+set sidescrolloff=5
 
 " When 'wrap' is on, display last line even if it doesn't fit.
 set display+=lastline
 
 " Show all whitespaces by default.
-if !&list && &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-  if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
-    let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
-  endif
+set list
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+  let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
 endif
 
 " Reload unchanged files automatically.
@@ -101,22 +120,34 @@ set fileformats+=mac
 set viminfo^=!
 
 " Increase history size to 1000 items.
-if &history < 1000
-  set history=1000
+set history=1000
+
+" Enable mouse for scrolling and window resizing.
+set mouse=nicr
+
+" For autocompletion, complete as much as you can.
+set wildmode=longest,full
+
+" Disable output, vcs, archive, rails, temp and backup files.
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*.swp,*~,._*
+
+" Disable swap to prevent annoying messages.
+set noswapfile
+
+" Create and set directories for backup and undo files.
+let s:dir = has('mac') ? '~/Library/Vim' : '~/.local/share/vim'
+if !isdirectory(expand(s:dir))
+  call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
+end
+
+let &backupdir = expand(s:dir) . '/backup//'
+if exists('+undodir')
+  let &undodir = expand(s:dir) . '/undo//'
 endif
 
-let s:dir = has('win32') ? '~/Application Data/Vim' : has('mac') ? '~/Library/Vim' : '~/.local/share/vim'
-if isdirectory(expand(s:dir))
-  if &directory =~# '^\.,'
-    let &directory = expand(s:dir) . '/swap//,' . &directory
-  endif
-  if &backupdir =~# '^\.,'
-    let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
-  endif
-  if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
-    let &undodir = expand(s:dir) . '/undo//,' . &undodir
-  endif
-endif
 if exists('+undofile')
   set undofile
 endif
@@ -140,4 +171,5 @@ endif
 " Y yanks from the cursor to the end of line as expected. See :help Y.
 nnoremap Y y$
 
-" vim:set ft=vim et sw=2:
+" Add gems.tags to files searched for tags.
+set tags+=gems.tags
