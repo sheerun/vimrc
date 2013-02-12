@@ -1,5 +1,5 @@
 " sensible.vim - Defaults everyone can agree on
-" Maintainer:   Tim Pope <http://tpo.pe/>
+" Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
 " Version:      1.0
 
 " Don't configure if one requests vi-compatible mode.

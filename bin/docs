@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+# Generates features list in markdown based on vim file
+#
+# Usage:
+#   bin/docs < plugins/sensible.vim
+
+paragraphs = $stdin.readlines.chunk { |line| line.strip.length == 0 }.map(&:last) 
+
+paragraphs.select! do |paragraph|
+  paragraph.any?{ |line| line.strip[0] == '"' }
+  paragraph.last.strip[0] != '"'
+end
+
+comments = paragraphs.map do |paragraph|
+  paragraph.flat_map do |line|
+    line[2..-1].strip if line && line.strip[0] == '"'
+  end.select{ |line| line && line.strip.size > 0 }
+end.reject(&:empty?)
+
+comments.map! do |comment|
+  "* #{comment.join("\n  ")}"
+end
+
+puts comments.join("\n")
