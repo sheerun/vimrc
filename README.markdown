@@ -29,16 +29,58 @@ mostly `:set` calls.)  Here's a taste:
 
 * `'backspace'`: Backspace through anything in insert mode.
 * `'incsearch'`: Start searching before pressing enter.
-* `'listchars'`: Show trailing whitespace.
+* `'listchars'`: Makes `:set list` (visible whitespace) prettier.
 * `'scrolloff'`: Always show at least one line above/below the cursor.
-* `'directory'`: Dump swap files under `~/.cache/vim/swap` (only if that
-  directory already exists).  Also `'backupdir'` and `'undodir'`.  Try
-  `mkdir -p ~/.cache/vim/{swap,backup,undo}`.
+* `'directory'`: Dump swap files under `~/.local/share/vim/swap`,
+  `~/Library/Vim/swap`, or `~\Application Data\Vim\swap`, depending on your
+  platform.  Also `'backupdir'` and `'undodir'`.  The directories aren't
+  created automatically, so try `mkdir -p ~/Library/Vim/{swap,backup,undo}`.
 * `nmap Y y$`: Make `Y` behave like `C` and `D`.
 * `runtime! macros/matchit.vim`: Load the version of matchit.vim that ships
   with Vim.
 
 [source]: https://github.com/tpope/vim-sensible/tree/master/plugin/sensible.vim
+
+## FAQ
+
+> How can I see what this plugin actually does?
+
+The [source][] is authoritative.  Use `:help 'option'` to see the
+documentation for an option.  If you install [scriptease.vim][], you can press
+`K` on an option (or command, or function) to jump to its documentation.
+
+[scriptease.vim]: https://github.com/tpope/vim-scriptease
+
+> How can I override a setting?
+
+Normally, sensible.vim loads after your vimrc, making it a bit tricky to
+override (although you could use `after/plugin/sensible.vim`).  If you want to
+load it earlier, add the following line to you vimrc, then put your overrides
+below.
+
+    runtime! plugin/sensible.vim
+
+Feel free to [let me know][GitHub issues] which setting you object to, so I
+can reassess whether it makes sense to include it.
+
+> What's with these `.*.un~` files?
+
+Basically, they make it so that you can undo things that happened in a
+previous invocation of Vim.  See `:help undo-persistence` for details.  If you
+don't like them strewn all over the file system, you have a few options.
+
+1.  Create the appropriate directory that sensible.vim automatically configures for
+    your platform:
+    * `~/.local/share/vim/undo` on Linux
+    * `~/Library/Vim/undo` on OS X
+    * `~\Application Data\Vim\undo` on Windows
+2.  Provide your own preferred location in `'undodir'`:
+        set undodir^=~/.vim/undo//
+3.  Disable them entirely:
+        set noundofile
+
+You can also just globally ignore them in your SCM of choice.  That's what I
+do.
 
 ## Contributing
 
@@ -62,7 +104,8 @@ for someone who can actually follow directions.
 ## Self-Promotion
 
 Like sensible.vim? Follow the repository on
-[GitHub](https://github.com/tpope/vim-sensible). And if
+[GitHub](https://github.com/tpope/vim-sensible) and vote for it on
+[vim.org](http://www.vim.org/scripts/script.php?script_id=4391). And if
 you're feeling especially charitable, follow [tpope](http://tpo.pe/) on
 [Twitter](http://twitter.com/tpope) and
 [GitHub](https://github.com/tpope).
