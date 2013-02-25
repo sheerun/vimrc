@@ -1,18 +1,18 @@
-# Sheerun's sensible.vim 
-
-Think of this plugin as step above `'nocompatible'` mode.
+# Sheerun's vimrc.vim
 
 I am Ruby developer and this plugin is supposed to replace my `.vimrc` file.
 
-Not everyone agreed on these settings. They just reflect my (rather good) taste.
+This is fork of `vim-sensible`, but not everyone agreed on these settings.
+
+They just reflect my (rather good) taste.
 
 ## Installation
 
-You can use [Vundle](https://github.com/gmarik/vundle) or [pathogen](https://github.com/tpope/vim-pathogen) for installation of this plugin.
+You can use [vundle](https://github.com/gmarik/vundle) or [pathogen](https://github.com/tpope/vim-pathogen) for installation of this plugin.
 
-You are supposed to fork this repository and source it at the top of `.vimrc`:
+You are supposed to **fork this repository** and source it at the top of `.vimrc`:
 
-    runtime! plugin/sensible.vim
+    runtime! plugin/vimrc.vim
 
 You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean method of managing vim configuration.
 
@@ -60,9 +60,18 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
 * Indent using two spaces.
   ```vim
   set tabstop=2
-  set backspace=2
   set shiftwidth=2
   set expandtab
+  ```
+
+* Allow backspace in insert mode.
+  ```vim
+  set backspace=indent,eol,start
+  ```
+
+* Show mode in statusbar, not separately.
+  ```vim
+  set noshowmode
   ```
 
 * Use 'shiftwidth' when using `<Tab>` in front of a line.
@@ -96,9 +105,10 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
   set smartcase
   ```
 
-* Do not wrap lines.
+* Do not wrap lines. But if, do it ad convenient points.
   ```vim
   set nowrap
+  set linebreak
   ```
 
 * Show line numbers on sidebar and statusbar.
@@ -123,16 +133,16 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
   set nomodeline
   ```
 
-* Disable auto folding on open.
+* Do not fold by default. But if, do it to 3 levels.
   ```vim
+  set foldmethod=indent
+  set foldnestmax=3
   set nofoldenable
   ```
 
-* Use <C-L> to clear the highlighting of :set hlsearch.
+* Use `Ctrl-L` to clear the highlighting of :set hlsearch.
   ```vim
-  if maparg('<C-L>', 'n') ==# ''
-    nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-  endif
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
   ```
 
 * Always show window statuses, even if there's only one.
@@ -151,18 +161,20 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
   ```
 
 * Autocomplete commands using nice menu in place of window status.
+  Enable `Ctrl-N` and `Ctrl-P` to scroll through matches.
   ```vim
   set wildmenu
   ```
 
-* Keep one line above or below the cursor when scrolling.
+* Keep 8 lines above or below the cursor when scrolling.
   ```vim
-  set scrolloff=1
+  set scrolloff=8
   ```
 
-* Keep 5 columns next to the cursor when scrolling horizontally.
+* Keep 15 columns next to the cursor when scrolling horizontally.
   ```vim
-  set sidescrolloff=5
+  set sidescroll=1
+  set sidescrolloff=15
   ```
 
 * When 'wrap' is on, display last line even if it doesn't fit.
@@ -227,6 +239,11 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
   set noswapfile
   ```
 
+* Save up to 100 marks, enable capital marks.
+  ```vim
+  set viminfo='100,f1
+  ```
+
 * Create and set directories for backup and undo files.
   ```vim
   let s:dir = has('mac') ? '~/Library/Vim' : '~/.local/share/vim'
@@ -267,27 +284,6 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
   ```
 
 See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.
-
-## FAQ
-
-> What's with these `.*.un~` files?
-
-Basically, they make it so that you can undo things that happened in a
-previous invocation of Vim.  See `:help undo-persistence` for details.  If you
-don't like them strewn all over the file system, you have a few options.
-
-1.  Create the appropriate directory that sensible.vim automatically configures for
-    your platform:
-    * `~/.local/share/vim/undo` on Linux
-    * `~/Library/Vim/undo` on OS X
-    * `~\Application Data\Vim\undo` on Windows
-2.  Provide your own preferred location in `'undodir'`:
-        set undodir^=~/.vim/undo//
-3.  Disable them entirely:
-        set noundofile
-
-You can also just globally ignore them in your SCM of choice.  That's what I
-do.
 
 ## License
 
