@@ -2,9 +2,7 @@
 
 I am Ruby developer and this plugin is supposed to replace my `.vimrc` file.
 
-This is fork of `vim-sensible`, but not everyone agreed on these settings.
-
-They just reflect my (rather good) taste.
+This is fork of [`vim-sensible`](https://github.com/tpope/vim-sensible), but not everyone agreed on these settings. They just reflect my (rather good) taste.
 
 ## Installation
 
@@ -18,7 +16,7 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
 
 ## Features
 
-## Configuration compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
+## Configuration compatible with `vim-sensible`
 
 * Disable strange Vi defaults.
 
