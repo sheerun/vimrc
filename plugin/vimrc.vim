@@ -1,4 +1,4 @@
-" sensible.vim - Defaults everyone can agree on
+" vimrc.vim - Plugin serving as .vimrc replacement.
 " Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
 " Version:      1.0
 
