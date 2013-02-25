@@ -5,18 +5,20 @@
 # Usage:
 #   bin/docs < plugins/sensible.vim
 
-paragraphs = $stdin.readlines.chunk { |line| line.strip.length == 0 }.map(&:last) 
+paragraphs = $stdin.readlines.chunk { |line| line.strip.length == 0 }.map(&:last)
 
 paragraphs.select! do |paragraph|
-  paragraph.any?{ |line| line.strip[0] == '"' }
-  paragraph.last.strip[0] != '"'
+  paragraph.any?{ |line| line[0] == '"' }
+  paragraph.last[0] != '"' || paragraph.first[0..1] == '""'
 end
 
 paragraphs.map! do |paragraph|
   {
+    header:
+      (paragraph.first[3..-2] if paragraph.first[0..1] == '""'),
     comments:
       paragraph.flat_map do |line|
-        line[2..-1].strip if line && line.strip[0] == '"'
+        line[2..-2] if line && line[0] == '"'
       end.select{ |line| line && line.strip.size > 0 },
     source:
       paragraph.select do |line|
@@ -24,11 +26,15 @@ paragraphs.map! do |paragraph|
       end
   }
 end.reject! do |paragraph|
-  paragraph[:comments].empty? || paragraph[:source].empty?
+  paragraph[:header].nil? && (paragraph[:comments].empty? || paragraph[:source].empty?)
 end
 
 paragraphs.map! do |paragraph|
-  "* #{paragraph[:comments].join("\n  ")}\n  \`\`\`vim\n  #{paragraph[:source].join("  ")}  \`\`\`\n"
+  if paragraph[:header]
+    "## " + paragraph[:header] + "\n"
+  else
+    "* #{paragraph[:comments].join("\n\n  ")}\n\n  \`\`\`vim\n  #{paragraph[:source].join("  ")}  \`\`\`\n"
+  end
 end
 
 puts paragraphs.join("\n")
