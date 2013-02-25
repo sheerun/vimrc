@@ -33,7 +33,11 @@ paragraphs.map! do |paragraph|
   if paragraph[:header]
     "### " + paragraph[:header] + "\n"
   else
-    "* #{paragraph[:comments].join("\n\n  ")}\n\n  \`\`\`vim\n  #{paragraph[:source].join("  ")}  \`\`\`\n"
+    if ENV['SHORT']
+      "* #{paragraph[:comments].join("\n  ")}"
+    else
+      "* #{paragraph[:comments].join("\n\n  ")}\n\n  \`\`\`vim\n  #{paragraph[:source].join("  ")}  \`\`\`\n"
+    end
   end
 end
 

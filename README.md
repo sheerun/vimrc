@@ -14,7 +14,33 @@ You are supposed to **fork this repository** and source it at the top of `.vimrc
 
 You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean method of managing vim configuration.
 
-## Features
+## Features overview
+
+The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
+
+* Automatically create backup and undo directories.
+* Support only for UNIX-like operating systems.
+* Keep 8 lines above or below the cursor when scrolling.
+* Keep 15 columns next to the cursor when scrolling horizontally.
+* Hide buffers instead of asking if to save them.
+* Don't wrap lines. But if so, do it at convenient points.
+* For autocompletion, complete as much as you can.
+* Show line numbers on the sidebar.
+* Disable any annoying beeps on errors.
+* Don't parse modelines (google "vim modeline vulnerability").
+* Do not fold by default. But if, do it up to 3 levels.
+* Enable mouse for scrolling and window resizing.
+* Disable swap to prevent annoying messages.
+* Save up to 100 marks, enable capital marks.
+* Enable search highlighting.
+* Ignore case when searching.
+* Show mode in statusbar, not separately.
+* Don't ignore case when search has capital letters
+  (although also don't ignore case by default).
+* Add gems.tags to files searched for tags.
+* Disable output, vcs, archive, rails, temp and backup files.
+
+## Detailed features
 
 ### Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
 
