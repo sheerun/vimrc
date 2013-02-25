@@ -29,9 +29,14 @@ set shiftround
 
 " Indent using two spaces.
 set tabstop=2
-set backspace=2
 set shiftwidth=2
 set expandtab
+
+" Allow backspace in insert mode.
+set backspace=indent,eol,start
+
+" Show mode in statusbar, not separately.
+set noshowmode
 
 " Use 'shiftwidth' when using `<Tab>` in front of a line.
 " By default it's used only for shift commands (`<`, `>`).
@@ -54,13 +59,14 @@ set ignorecase
 " (although also don't ignore case by default).
 set smartcase
 
-" Do not wrap lines.
+" Do not wrap lines. But if, do it ad convenient points.
 set nowrap
+set linebreak
 
 " Show line numbers on sidebar and statusbar.
 set number
 
-" Don't ask if to safe buffers on close. 
+" Don't ask if to safe buffers on close.
 set autowrite
 set hidden
 
@@ -71,13 +77,13 @@ set visualbell
 " Don't parse modelines (for security reasons).
 set nomodeline
 
-" Disable auto folding on open.
+" Do not fold by default. But if, do it to 3 levels.
+set foldmethod=indent
+set foldnestmax=3
 set nofoldenable
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
+" Use `Ctrl-L` to clear the highlighting of :set hlsearch.
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " Always show window statuses, even if there's only one.
 set laststatus=2
@@ -89,13 +95,15 @@ set ruler
 set showcmd
 
 " Autocomplete commands using nice menu in place of window status.
+" Enable `Ctrl-N` and `Ctrl-P` to scroll through matches.
 set wildmenu
 
-" Keep one line above or below the cursor when scrolling.
-set scrolloff=1
+" Keep 8 lines above or below the cursor when scrolling.
+set scrolloff=8
 
-" Keep 5 columns next to the cursor when scrolling horizontally.
-set sidescrolloff=5
+" Keep 15 columns next to the cursor when scrolling horizontally.
+set sidescroll=1
+set sidescrolloff=15
 
 " When 'wrap' is on, display last line even if it doesn't fit.
 set display+=lastline
@@ -136,6 +144,9 @@ set wildignore+=*.swp,*~,._*
 
 " Disable swap to prevent annoying messages.
 set noswapfile
+
+" Save up to 100 marks, enable capital marks.
+set viminfo='100,f1
 
 " Create and set directories for backup and undo files.
 let s:dir = has('mac') ? '~/Library/Vim' : '~/.local/share/vim'
