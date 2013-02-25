@@ -2,7 +2,7 @@
 " Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
 " Version:      1.0
 
-"" Configuration compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
+"" Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
 
 " Disable strange Vi defaults.
 set nocompatible
@@ -139,7 +139,7 @@ xnoremap & :&&<CR>
 nnoremap Y y$
 
 
-"" Defaults I consider to be good (you can change them in your fork)
+"" Compatible with my taste ;) (you can change them in fork)
 
 " Keep 8 lines above or below the cursor when scrolling.
 set scrolloff=8

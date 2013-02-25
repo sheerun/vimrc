@@ -16,7 +16,7 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
 
 ## Features
 
-## Configuration compatible with `vim-sensible`
+### Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
 
 * Disable strange Vi defaults.
 
@@ -257,7 +257,7 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
   nnoremap Y y$
   ```
 
-## Defaults I consider to be good (you can change them in your fork)
+### Compatible with my taste ;) (you can change them in fork)
 
 * Keep 8 lines above or below the cursor when scrolling.
 

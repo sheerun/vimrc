@@ -31,7 +31,7 @@ end
 
 paragraphs.map! do |paragraph|
   if paragraph[:header]
-    "## " + paragraph[:header] + "\n"
+    "### " + paragraph[:header] + "\n"
   else
     "* #{paragraph[:comments].join("\n\n  ")}\n\n  \`\`\`vim\n  #{paragraph[:source].join("  ")}  \`\`\`\n"
   end
