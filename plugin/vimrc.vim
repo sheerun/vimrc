@@ -130,6 +130,9 @@ set viminfo^=!
 " Increase history size to 1000 items.
 set history=1000
 
+" Allow for up to 50 opened tabs on Vim start.
+set tabpagemax=50
+
 " Enable mouse for scrolling and window resizing.
 set mouse=nicr
 
@@ -149,7 +152,7 @@ set noswapfile
 set viminfo='100,f1
 
 " Create and set directories for backup and undo files.
-let s:dir = has('mac') ? '~/Library/Vim' : '~/.local/share/vim'
+let s:dir = match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
 if !isdirectory(expand(s:dir))
   call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
 end
@@ -181,6 +184,14 @@ endif
 
 " Y yanks from the cursor to the end of line as expected. See :help Y.
 nnoremap Y y$
+
+" Keep flags when repeating last substitute.
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
+" `Ctrl-U` in insert mode deletes a lot. Use `Ctrl-G` u to first break undo,
+" so that you can undo `Ctrl-U` without undoing what you typed before it.
+inoremap <C-U> <C-G>u<C-U>
 
 " Add gems.tags to files searched for tags.
 set tags+=gems.tags

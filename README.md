@@ -216,6 +216,11 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
   set history=1000
   ```
 
+* Allow for up to 50 opened tabs on Vim start.
+  ```vim
+  set tabpagemax=50
+  ```
+
 * Enable mouse for scrolling and window resizing.
   ```vim
   set mouse=nicr
@@ -246,7 +251,7 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
 
 * Create and set directories for backup and undo files.
   ```vim
-  let s:dir = has('mac') ? '~/Library/Vim' : '~/.local/share/vim'
+  let s:dir = match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
   if !isdirectory(expand(s:dir))
     call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
   end
@@ -276,6 +281,18 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
 * Y yanks from the cursor to the end of line as expected. See :help Y.
   ```vim
   nnoremap Y y$
+  ```
+
+* Keep flags when repeating last substitute.
+  ```vim
+  nnoremap & :&&<CR>
+  xnoremap & :&&<CR>
+  ```
+
+* `Ctrl-U` in insert mode deletes a lot. Use `Ctrl-G` u to first break undo,
+  so that you can undo `Ctrl-U` without undoing what you typed before it.
+  ```vim
+  inoremap <C-U> <C-G>u<C-U>
   ```
 
 * Add gems.tags to files searched for tags.
