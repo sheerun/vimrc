@@ -151,9 +151,19 @@ set sidescrolloff=15
 " Hide buffers instead of asking if to save them.
 set hidden
 
-" Don't wrap lines. But if so, do it at convenient points.
-set nowrap
-set linebreak
+" But if so, do it at convenient points.
+set wrap linebreak nolist
+set showbreak=…
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-$> g$
+vmap <D-^> g^
+vmap <D-0> g^
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-$> g$
+nmap <D-^> g^
+nmap <D-0> g^
 
 " For autocompletion, complete as much as you can.
 set wildmode=longest,full
