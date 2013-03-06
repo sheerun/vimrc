@@ -304,11 +304,21 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   set hidden
   ```
 
-* Don't wrap lines. But if so, do it at convenient points.
+* But if so, do it at convenient points.
 
   ```vim
-  set nowrap
-  set linebreak
+  set wrap linebreak nolist
+  set showbreak=…
+  vmap <D-j> gj
+  vmap <D-k> gk
+  vmap <D-$> g$
+  vmap <D-^> g^
+  vmap <D-0> g^
+  nmap <D-j> gj
+  nmap <D-k> gk
+  nmap <D-$> g$
+  nmap <D-^> g^
+  nmap <D-0> g^
   ```
 
 * For autocompletion, complete as much as you can.
