@@ -41,12 +41,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Add gems.tags to files searched for tags.
 * Disable output, vcs, archive, rails, temp and backup files.
 * Use arrows for scrolling instead of moving cursor.
-* If you visually select something and hit paste
-  that thing gets yanked into your buffer. This
-  generally is annoying when you're copying one item
-  and repeatedly pasting it. This changes the paste
-  command in visual mode so that it doesn't overwrite
-  whatever is in your paste buffer.
 * Auto center on matched string.
 * Visually select the text that was last edited/pasted (Vimcast#26)
 * Expand %% to path of current buffer in command mode.
@@ -445,17 +439,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   nnoremap <Up> <c-y>
   nnoremap <Left> <nop>
   nnoremap <Right> <nop>
-  ```
-
-* If you visually select something and hit paste
-  that thing gets yanked into your buffer. This
-  generally is annoying when you're copying one item
-  and repeatedly pasting it. This changes the paste
-  command in visual mode so that it doesn't overwrite
-  whatever is in your paste buffer.
-
-  ```vim
-  vnoremap p "_dP
   ```
 
 * Auto center on matched string.
