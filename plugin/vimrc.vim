@@ -154,22 +154,25 @@ set hidden
 " But if so, do it at convenient points.
 set wrap linebreak nolist
 set showbreak=…
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-$> g$
-vmap <D-^> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk
-nmap <D-$> g$
-nmap <D-^> g^
-nmap <D-0> g^
+vmap j gj
+vmap k gk
+vmap $ g$
+vmap ^ g^
+vmap 0 g^
+nmap j gj
+nmap k gk
+nmap $ g$
+nmap ^ g^
+nmap 0 g^
 
 " For autocompletion, complete as much as you can.
 set wildmode=longest,full
 
 " Show line numbers on the sidebar.
 set number
+
+" Higlight current line
+set cursorline
 
 " Disable any annoying beeps on errors.
 set noerrorbells
@@ -213,3 +216,11 @@ set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
+
+" If you visually select something and hit paste
+" that thing gets yanked into your buffer. This
+" generally is annoying when you're copying one item
+" and repeatedly pasting it. This changes the paste
+" command in visual mode so that it doesn't overwrite
+" whatever is in your paste buffer.
+vnoremap p "_dP
