@@ -211,6 +211,9 @@ set noshowmode
 " (although also don't ignore case by default).
 set smartcase
 
+" Use dash as word separator.
+set iskeyword+=-
+
 " Add gems.tags to files searched for tags.
 set tags+=gems.tags
 
@@ -220,6 +223,12 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
 
+" Use arrows for scrolling instead of moving cursor.
+nnoremap <Down> <c-e>
+nnoremap <Up> <c-y>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+
 " If you visually select something and hit paste
 " that thing gets yanked into your buffer. This
 " generally is annoying when you're copying one item
@@ -227,3 +236,24 @@ set wildignore+=*.swp,*~,._*
 " command in visual mode so that it doesn't overwrite
 " whatever is in your paste buffer.
 vnoremap p "_dP
+
+" Auto center on matched string.
+noremap n nzz
+noremap N Nzz
+
+" Visually select the text that was last edited/pasted (Vimcast#26)
+noremap gV `[v`]
+
+" Expand %% to path of current buffer in command mode.
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" Automatically change cursor type in iTerm2 for insert mode.
+if exists('$ITERM_PROFILE')
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[0 q"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+end

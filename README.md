@@ -37,14 +37,20 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Show mode in statusbar, not separately.
 * Don't ignore case when search has capital letters
   (although also don't ignore case by default).
+* Use dash as word separator.
 * Add gems.tags to files searched for tags.
 * Disable output, vcs, archive, rails, temp and backup files.
+* Use arrows for scrolling instead of moving cursor.
 * If you visually select something and hit paste
   that thing gets yanked into your buffer. This
   generally is annoying when you're copying one item
   and repeatedly pasting it. This changes the paste
   command in visual mode so that it doesn't overwrite
   whatever is in your paste buffer.
+* Auto center on matched string.
+* Visually select the text that was last edited/pasted (Vimcast#26)
+* Expand %% to path of current buffer in command mode.
+* Automatically change cursor type in iTerm2 for insert mode.
 
 ## Detailed features
 
@@ -411,6 +417,12 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   set smartcase
   ```
 
+* Use dash as word separator.
+
+  ```vim
+  set iskeyword+=-
+  ```
+
 * Add gems.tags to files searched for tags.
 
   ```vim
@@ -426,6 +438,15 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   set wildignore+=*.swp,*~,._*
   ```
 
+* Use arrows for scrolling instead of moving cursor.
+
+  ```vim
+  nnoremap <Down> <c-e>
+  nnoremap <Up> <c-y>
+  nnoremap <Left> <nop>
+  nnoremap <Right> <nop>
+  ```
+
 * If you visually select something and hit paste
   that thing gets yanked into your buffer. This
   generally is annoying when you're copying one item
@@ -435,6 +456,39 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 
   ```vim
   vnoremap p "_dP
+  ```
+
+* Auto center on matched string.
+
+  ```vim
+  noremap n nzz
+  noremap N Nzz
+  ```
+
+* Visually select the text that was last edited/pasted (Vimcast#26)
+
+  ```vim
+  noremap gV `[v`]
+  ```
+
+* Expand %% to path of current buffer in command mode.
+
+  ```vim
+  cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+  ```
+
+* Automatically change cursor type in iTerm2 for insert mode.
+
+  ```vim
+  if exists('$ITERM_PROFILE')
+    if exists('$TMUX')
+      let &t_SI = "\<Esc>[3 q"
+      let &t_EI = "\<Esc>[0 q"
+    else
+      let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+      let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    endif
+  end
   ```
 
 See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.
