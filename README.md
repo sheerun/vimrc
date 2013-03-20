@@ -18,14 +18,14 @@ You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean 
 
 The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 
-* Automatically create backup and undo directories.
-* Support only for UNIX-like operating systems.
+* Use more readable color scheme by default
 * Keep 8 lines above or below the cursor when scrolling.
 * Keep 15 columns next to the cursor when scrolling horizontally.
 * Hide buffers instead of asking if to save them.
-* Don't wrap lines. But if so, do it at convenient points.
+* But if so, do it at convenient points.
 * For autocompletion, complete as much as you can.
 * Show line numbers on the sidebar.
+* Higlight current line
 * Disable any annoying beeps on errors.
 * Don't parse modelines (google "vim modeline vulnerability").
 * Do not fold by default. But if, do it up to 3 levels.
@@ -39,6 +39,12 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   (although also don't ignore case by default).
 * Add gems.tags to files searched for tags.
 * Disable output, vcs, archive, rails, temp and backup files.
+* If you visually select something and hit paste
+  that thing gets yanked into your buffer. This
+  generally is annoying when you're copying one item
+  and repeatedly pasting it. This changes the paste
+  command in visual mode so that it doesn't overwrite
+  whatever is in your paste buffer.
 
 ## Detailed features
 
@@ -91,7 +97,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```
 
 * Use 'shiftwidth' when using `<Tab>` in front of a line.
-
   By default it's used only for shift commands (`<`, `>`).
 
   ```vim
@@ -111,7 +116,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```
 
 * Allow for mappings including `Esc`, while preserving
-
   zero timeout after pressing it manually.
 
   ```vim
@@ -158,7 +162,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```
 
 * Autocomplete commands using nice menu in place of window status.
-
   Enable `Ctrl-N` and `Ctrl-P` to scroll through matches.
 
   ```vim
@@ -263,7 +266,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```
 
 * `Ctrl-U` in insert mode deletes a lot. Use `Ctrl-G` u to first break undo,
-
   so that you can undo `Ctrl-U` without undoing what you typed before it.
 
   ```vim
@@ -284,6 +286,12 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```
 
 ### Compatible with my taste ;) (you can change them in fork)
+
+* Use more readable color scheme by default
+
+  ```vim
+  colorscheme wombat256mod
+  ```
 
 * Keep 8 lines above or below the cursor when scrolling.
 
@@ -309,16 +317,16 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```vim
   set wrap linebreak nolist
   set showbreak=…
-  vmap <D-j> gj
-  vmap <D-k> gk
-  vmap <D-$> g$
-  vmap <D-^> g^
-  vmap <D-0> g^
-  nmap <D-j> gj
-  nmap <D-k> gk
-  nmap <D-$> g$
-  nmap <D-^> g^
-  nmap <D-0> g^
+  vmap j gj
+  vmap k gk
+  vmap $ g$
+  vmap ^ g^
+  vmap 0 g^
+  nmap j gj
+  nmap k gk
+  nmap $ g$
+  nmap ^ g^
+  nmap 0 g^
   ```
 
 * For autocompletion, complete as much as you can.
@@ -331,6 +339,12 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 
   ```vim
   set number
+  ```
+
+* Higlight current line
+
+  ```vim
+  set cursorline
   ```
 
 * Disable any annoying beeps on errors.
@@ -391,7 +405,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```
 
 * Don't ignore case when search has capital letters
-
   (although also don't ignore case by default).
 
   ```vim
@@ -411,6 +424,17 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
   set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
   set wildignore+=*.swp,*~,._*
+  ```
+
+* If you visually select something and hit paste
+  that thing gets yanked into your buffer. This
+  generally is annoying when you're copying one item
+  and repeatedly pasting it. This changes the paste
+  command in visual mode so that it doesn't overwrite
+  whatever is in your paste buffer.
+
+  ```vim
+  vnoremap p "_dP
   ```
 
 See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.

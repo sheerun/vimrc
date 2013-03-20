@@ -141,6 +141,9 @@ nnoremap Y y$
 
 "" Compatible with my taste ;) (you can change them in fork)
 
+" Use more readable color scheme by default
+colorscheme wombat256mod
+
 " Keep 8 lines above or below the cursor when scrolling.
 set scrolloff=8
 
