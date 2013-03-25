@@ -155,7 +155,7 @@ set sidescrolloff=15
 set hidden
 
 " But if so, do it at convenient points.
-set wrap linebreak nolist
+set wrap linebreak
 set showbreak=…
 vmap j gj
 vmap k gk
@@ -190,7 +190,7 @@ set foldnestmax=3
 set nofoldenable
 
 " Enable mouse for scrolling and window resizing.
-set mouse=nicr
+set mouse=a
 
 " Disable swap to prevent annoying messages.
 set noswapfile
@@ -249,3 +249,55 @@ if exists('$ITERM_PROFILE')
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
   endif
 end
+
+" Enable global substitute by default
+set gdefault
+
+" Enable saving by `Ctrl-s`
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <ESC>:w<CR>
+
+" Use Q to intelligently close a window 
+" (if there are multiple windows into the same buffer)
+" or kill the buffer entirely if it's the last window looking into that buffer
+function! CloseWindowOrKillBuffer()
+  let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
+  if matchstr(expand("%"), 'NERD') == 'NERD'
+    wincmd c
+    return
+  endif
+  if number_of_windows_to_this_buffer > 1
+    wincmd c
+  else
+    bdelete
+  endif
+endfunction
+nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
+
+" Enable normal regex handling
+" See http://stevelosh.com/blog/2010/09/coming-home-to-vim
+nnoremap / /\v
+vnoremap / /\v
+
+" Make macros faster by deferring window redrawing
+set lazyredraw
+
+" Set window title by default
+set title
+
+" Yank/paste to the OS clipboard with ,y and ,p
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>yy "+yy
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+
+" Exit insert mode by presing jj, kk, hh or ll
+inoremap jj <ESC>
+inoremap kk <ESC>
+inoremap hh <ESC>
+inoremap ll <ESC>
+
+" Always focus on splited window
+nnoremap <Ctrl-w>s <Ctrl-w>s<Ctrl-w>w
+nnoremap <Ctrl-w>v <Ctrl-w>v<Ctrl-w>w

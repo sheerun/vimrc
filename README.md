@@ -45,6 +45,18 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Visually select the text that was last edited/pasted (Vimcast#26)
 * Expand %% to path of current buffer in command mode.
 * Automatically change cursor type in iTerm2 for insert mode.
+* Enable global substitute by default
+* Enable saving by `Ctrl-s`
+* Use Q to intelligently close a window 
+  (if there are multiple windows into the same buffer)
+  or kill the buffer entirely if it's the last window looking into that buffer
+* Enable normal regex handling
+  See http://stevelosh.com/blog/2010/09/coming-home-to-vim
+* Make macros faster by deferring window redrawing
+* Set window title by default
+* Yank/paste to the OS clipboard with ,y and ,p
+* Exit insert mode by presing jj, kk, hh or ll
+* Always focus on splited window
 
 ## Detailed features
 
@@ -315,7 +327,7 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * But if so, do it at convenient points.
 
   ```vim
-  set wrap linebreak nolist
+  set wrap linebreak
   set showbreak=…
   vmap j gj
   vmap k gk
@@ -371,7 +383,7 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Enable mouse for scrolling and window resizing.
 
   ```vim
-  set mouse=nicr
+  set mouse=a
   ```
 
 * Disable swap to prevent annoying messages.
@@ -472,6 +484,85 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
       let &t_EI = "\<Esc>]50;CursorShape=0\x7"
     endif
   end
+  ```
+
+* Enable global substitute by default
+
+  ```vim
+  set gdefault
+  ```
+
+* Enable saving by `Ctrl-s`
+
+  ```vim
+  nnoremap <C-s> :w<CR>
+  inoremap <C-s> <ESC>:w<CR>
+  ```
+
+* Use Q to intelligently close a window 
+  (if there are multiple windows into the same buffer)
+  or kill the buffer entirely if it's the last window looking into that buffer
+
+  ```vim
+  function! CloseWindowOrKillBuffer()
+    let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
+    if matchstr(expand("%"), 'NERD') == 'NERD'
+      wincmd c
+      return
+    endif
+    if number_of_windows_to_this_buffer > 1
+      wincmd c
+    else
+      bdelete
+    endif
+  endfunction
+  nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
+  ```
+
+* Enable normal regex handling
+  See http://stevelosh.com/blog/2010/09/coming-home-to-vim
+
+  ```vim
+  nnoremap / /\v
+  vnoremap / /\v
+  ```
+
+* Make macros faster by deferring window redrawing
+
+  ```vim
+  set lazyredraw
+  ```
+
+* Set window title by default
+
+  ```vim
+  set title
+  ```
+
+* Yank/paste to the OS clipboard with ,y and ,p
+
+  ```vim
+  nnoremap <leader>y "+y
+  nnoremap <leader>Y "+Y
+  nnoremap <leader>yy "+yy
+  nnoremap <leader>p "+p
+  nnoremap <leader>P "+P
+  ```
+
+* Exit insert mode by presing jj, kk, hh or ll
+
+  ```vim
+  inoremap jj <ESC>
+  inoremap kk <ESC>
+  inoremap hh <ESC>
+  inoremap ll <ESC>
+  ```
+
+* Always focus on splited window
+
+  ```vim
+  nnoremap <Ctrl-w>s <Ctrl-w>s<Ctrl-w>w
+  nnoremap <Ctrl-w>v <Ctrl-w>v<Ctrl-w>w
   ```
 
 See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.
