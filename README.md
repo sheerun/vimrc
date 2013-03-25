@@ -55,7 +55,7 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Make macros faster by deferring window redrawing
 * Set window title by default
 * Yank/paste to the OS clipboard with ,y and ,p
-* Exit insert mode by presing jj, kk, hh or ll
+* Exit insert mode by presing jj or kk
 * Always focus on splited window
 
 ## Detailed features
@@ -549,13 +549,11 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   nnoremap <leader>P "+P
   ```
 
-* Exit insert mode by presing jj, kk, hh or ll
+* Exit insert mode by presing jj or kk
 
   ```vim
   inoremap jj <ESC>
   inoremap kk <ESC>
-  inoremap hh <ESC>
-  inoremap ll <ESC>
   ```
 
 * Always focus on splited window

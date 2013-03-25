@@ -292,11 +292,9 @@ nnoremap <leader>yy "+yy
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 
-" Exit insert mode by presing jj, kk, hh or ll
+" Exit insert mode by presing jj or kk
 inoremap jj <ESC>
 inoremap kk <ESC>
-inoremap hh <ESC>
-inoremap ll <ESC>
 
 " Always focus on splited window
 nnoremap <Ctrl-w>s <Ctrl-w>s<Ctrl-w>w
