@@ -297,5 +297,5 @@ inoremap jj <ESC>
 inoremap kk <ESC>
 
 " Always focus on splited window
-nnoremap <Ctrl-w>s <Ctrl-w>s<Ctrl-w>w
-nnoremap <Ctrl-w>v <Ctrl-w>v<Ctrl-w>w
+nnoremap <C-w>s <C-w>s<C-w>w
+nnoremap <C-w>v <C-w>v<C-w>w

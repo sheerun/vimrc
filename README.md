@@ -559,8 +559,8 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Always focus on splited window
 
   ```vim
-  nnoremap <Ctrl-w>s <Ctrl-w>s<Ctrl-w>w
-  nnoremap <Ctrl-w>v <Ctrl-w>v<Ctrl-w>w
+  nnoremap <C-w>s <C-w>s<C-w>w
+  nnoremap <C-w>v <C-w>v<C-w>w
   ```
 
 See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.
