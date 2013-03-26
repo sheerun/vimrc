@@ -285,13 +285,6 @@ set lazyredraw
 " Set window title by default
 set title
 
-" Yank/paste to the OS clipboard with ,y and ,p
-nnoremap <leader>y "+y
-nnoremap <leader>Y "+Y
-nnoremap <leader>yy "+yy
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-
 " Exit insert mode by presing jj or kk
 inoremap jj <ESC>
 inoremap kk <ESC>
