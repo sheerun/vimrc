@@ -209,6 +209,9 @@ set viminfo='100,f1
 " Enable search highlighting.
 set hlsearch
 
+" Clear search highlighting when pressing `Esc`
+nnoremap <silent> <Esc> :noh<Esc>
+
 " Ignore case when searching.
 set ignorecase
 
