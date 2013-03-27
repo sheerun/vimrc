@@ -156,6 +156,9 @@ set winwidth=79
 set winheight=5
 set winminheight=5
 
+" If opening buffer, search first in opened windows
+set switchbuf=usetab
+
 " Hide buffers instead of asking if to save them.
 set hidden
 
