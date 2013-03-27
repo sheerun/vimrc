@@ -155,7 +155,6 @@ set sidescrolloff=15
 set winwidth=79
 set winheight=5
 set winminheight=5
-au VimEnter * set winheight=999
 
 " Hide buffers instead of asking if to save them.
 set hidden
