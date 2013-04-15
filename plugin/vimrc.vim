@@ -211,8 +211,8 @@ set hlsearch
 
 " Clear search highlighting when pressing `Esc`
 " http://superuser.com/questions/285049/remapping-esc-in-macvim-angers-vim-itself
-nnoremap <Esc> :noh<CR><Esc>
-nnoremap c :nunmap c<Cr>
+nnoremap <silent> <Esc> :noh<CR><Esc>
+nnoremap <silent> c :nunmap c<Cr>
 
 " Ignore case when searching.
 set ignorecase
