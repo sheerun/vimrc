@@ -210,7 +210,9 @@ set viminfo='100,f1
 set hlsearch
 
 " Clear search highlighting when pressing `Esc`
-nnoremap <silent> <Esc> :noh<Esc>
+" http://superuser.com/questions/285049/remapping-esc-in-macvim-angers-vim-itself
+nnoremap <Esc> :noh<CR><Esc>
+nnoremap c :nunmap c<Cr>
 
 " Ignore case when searching.
 set ignorecase
@@ -260,9 +262,6 @@ if exists('$ITERM_PROFILE')
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
   endif
 end
-
-" Enable global substitute by default
-set gdefault
 
 " Enable saving by `Ctrl-s`
 nnoremap <C-s> :w<CR>
