@@ -297,3 +297,6 @@ inoremap kk <ESC>
 " Always focus on splited window
 nnoremap <C-w>s <C-w>s<C-w>w
 nnoremap <C-w>v <C-w>v<C-w>w
+
+" Don't display the intro message on starting Vim
+set shortmess+=I
