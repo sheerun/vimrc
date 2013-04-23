@@ -44,13 +44,13 @@ set shiftround
 set ttimeout
 set ttimeoutlen=50
 
+" Enable highlighted case-insensitive incremential search.
+set incsearch
+
 " Indent using two spaces.
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" Enable highlighted case-insensitive incremential search.
-set incsearch
 
 " Use `Ctrl-L` to clear the highlighting of :set hlsearch.
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
@@ -71,18 +71,19 @@ set wildmenu
 " When 'wrap' is on, display last line even if it doesn't fit.
 set display+=lastline
 
-" Show all whitespaces by default.
-set list
+" Force utf-8 encoding in GVim
+if &encoding ==# 'latin1' && has('gui_running')
+  set encoding=utf-8
+endif
+
+" Set default whitespace characters when using `:set list`
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
   let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
 endif
 
 " Reload unchanged files automatically.
 set autoread
-
-" Automatically save file as buffer goes away.
-set autowrite
 
 " Support all kind of EOLs by default.
 set fileformats+=mac
@@ -96,29 +97,15 @@ set tabpagemax=50
 " Always save upper case variables to viminfo file.
 set viminfo^=!
 
-" Create and set directories for backup and undo files.
-let s:dir = match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
-if !isdirectory(expand(s:dir))
-  call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
-end
-
-" Enable back and undo files by default.
+" Enable backup and undo files by default.
+let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
 let &backupdir = expand(s:dir) . '/backup//'
-if exists('+undodir')
-  let &undodir = expand(s:dir) . '/undo//'
-  if exists('+undofile')
-    set undofile
-  endif
-endif
+let &undodir = expand(s:dir) . '/undo//'
+set undofile
 
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux'
   set t_Co=16
-endif
-
-" Hide dotfiles, backup files and tag files by default.
-if !exists('g:netrw_list_hide')
-  let g:netrw_list_hide = '^\.,\~$,^tags$'
 endif
 
 
@@ -144,6 +131,11 @@ nnoremap Y y$
 " Use more readable color scheme by default
 colorscheme wombat256mod
 
+" Create and set directories for backup and undo files.
+if !isdirectory(expand(s:dir))
+  call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
+end
+
 " Keep 8 lines above or below the cursor when scrolling.
 set scrolloff=8
 
@@ -162,9 +154,11 @@ set switchbuf=usetab
 " Hide buffers instead of asking if to save them.
 set hidden
 
-" But if so, do it at convenient points.
+" Wrap lines by default
 set wrap linebreak
-set showbreak=…
+set showbreak=" "
+
+" Allow easy navigation between wrapped lines
 vmap j gj
 vmap k gk
 vmap $ g$
