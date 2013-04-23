@@ -10,7 +10,7 @@ You can use [vundle](https://github.com/gmarik/vundle) or [pathogen](https://git
 
 You are supposed to **fork this repository** and source it at the top of `.vimrc`:
 
-    runtime! plugin/vimrc.vim
+runtime! plugin/vimrc.vim
 
 You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean method of managing vim configuration.
 
@@ -21,6 +21,8 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Use more readable color scheme by default
 * Keep 8 lines above or below the cursor when scrolling.
 * Keep 15 columns next to the cursor when scrolling horizontally.
+* Set minimum window size to 79x5
+* If opening buffer, search first in opened windows
 * Hide buffers instead of asking if to save them.
 * But if so, do it at convenient points.
 * For autocompletion, complete as much as you can.
@@ -45,7 +47,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Visually select the text that was last edited/pasted (Vimcast#26)
 * Expand %% to path of current buffer in command mode.
 * Automatically change cursor type in iTerm2 for insert mode.
-* Enable global substitute by default
 * Enable saving by `Ctrl-s`
 * Use Q to intelligently close a window 
   (if there are multiple windows into the same buffer)
@@ -56,6 +57,7 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Set window title by default
 * Exit insert mode by presing jj or kk
 * Always focus on splited window
+* Don't display the intro message on starting Vim
 
 ## Detailed features
 
@@ -317,6 +319,20 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   set sidescrolloff=15
   ```
 
+* Set minimum window size to 79x5
+
+  ```vim
+  set winwidth=79
+  set winheight=5
+  set winminheight=5
+  ```
+
+* If opening buffer, search first in opened windows
+
+  ```vim
+  set switchbuf=usetab
+  ```
+
 * Hide buffers instead of asking if to save them.
 
   ```vim
@@ -485,12 +501,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   end
   ```
 
-* Enable global substitute by default
-
-  ```vim
-  set gdefault
-  ```
-
 * Enable saving by `Ctrl-s`
 
   ```vim
@@ -550,6 +560,12 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```vim
   nnoremap <C-w>s <C-w>s<C-w>w
   nnoremap <C-w>v <C-w>v<C-w>w
+  ```
+
+* Don't display the intro message on starting Vim
+
+  ```vim
+  set shortmess+=I
   ```
 
 See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.

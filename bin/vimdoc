@@ -14,13 +14,13 @@ end
 
 paragraphs.map! do |paragraph|
   {
-    header:
+    :header =>
       (paragraph.first[3..-2] if paragraph.first[0..1] == '""'),
-    comments:
+    :comments =>
       paragraph.flat_map do |line|
         line[2..-2] if line && line[0] == '"'
       end.select{ |line| line && line.strip.size > 0 },
-    source:
+    :source =>
       paragraph.select do |line|
         line && line.strip[0] != '"' && line.strip.size > 0
       end

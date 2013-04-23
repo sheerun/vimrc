@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+while read line; do
+  if [[ $line =~ ^\$ ]]; then 
+    eval "${line#$ }"
+  else
+    echo "$line"
+  fi
+done
