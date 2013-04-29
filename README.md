@@ -238,6 +238,7 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Enable backup and undo files by default.
 
   ```vim
+  let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
   let &backupdir = expand(s:dir) . '/backup//'
   let &undodir = expand(s:dir) . '/undo//'
   set undofile
@@ -290,7 +291,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
 * Create and set directories for backup and undo files.
 
   ```vim
-  let s:dir = match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
   if !isdirectory(expand(s:dir))
     call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
   end
