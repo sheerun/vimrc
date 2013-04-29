@@ -278,9 +278,6 @@ nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 nnoremap / /\v
 vnoremap / /\v
 
-" Make macros faster by deferring window redrawing
-set lazyredraw
-
 " Set window title by default
 set title
 

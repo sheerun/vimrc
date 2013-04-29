@@ -55,7 +55,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   or kill the buffer entirely if it's the last window looking into that buffer
 * Enable normal regex handling
   See http://stevelosh.com/blog/2010/09/coming-home-to-vim
-* Make macros faster by deferring window redrawing
 * Set window title by default
 * Exit insert mode by presing jj or kk
 * Always focus on splited window
@@ -530,12 +529,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```vim
   nnoremap / /\v
   vnoremap / /\v
-  ```
-
-* Make macros faster by deferring window redrawing
-
-  ```vim
-  set lazyredraw
   ```
 
 * Set window title by default
