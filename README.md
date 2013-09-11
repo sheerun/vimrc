@@ -220,8 +220,8 @@ runtime! plugin/vimrc.vim
   inoremap <C-U> <C-G>u<C-U>
   ```
 
-* Avoid problems with fish shell.
-  ([issue](https://github.com/tpope/vim-sensible/issues/50))
+* Avoid problems with fish shell
+  ([issue](https://github.com/tpope/vim-sensible/issues/50)).
 
   ```vim
   if &shell =~# 'fish$'
@@ -265,7 +265,7 @@ runtime! plugin/vimrc.vim
   set sidescrolloff=15
   ```
 
-* Set minimum window size to 79x5
+* Set minimum window size to 79x5.
 
   ```vim
   set winwidth=79
@@ -273,7 +273,7 @@ runtime! plugin/vimrc.vim
   set winminheight=5
   ```
 
-* If opening buffer, search first in opened windows
+* If opening buffer, search first in opened windows.
 
   ```vim
   set switchbuf=usetab
@@ -292,7 +292,7 @@ runtime! plugin/vimrc.vim
   set showbreak=" "
   ```
 
-* Allow easy navigation between wrapped lines
+* Allow easy navigation between wrapped lines.
 
   ```vim
   vmap j gj
@@ -376,7 +376,7 @@ runtime! plugin/vimrc.vim
   set noshowmode
   ```
 
-* Don't ignore case when search has capital letters
+* Don't ignore case when search has capital letter
   (although also don't ignore case by default).
 
   ```vim
@@ -420,7 +420,7 @@ runtime! plugin/vimrc.vim
   noremap N Nzz
   ```
 
-* Visually select the text that was last edited/pasted (Vimcast#26)
+* Visually select the text that was last edited/pasted (Vimcast#26).
 
   ```vim
   noremap gV `[v`]
@@ -455,7 +455,7 @@ runtime! plugin/vimrc.vim
 
 * Use Q to intelligently close a window 
   (if there are multiple windows into the same buffer)
-  or kill the buffer entirely if it's the last window looking into that buffer
+  or kill the buffer entirely if it's the last window looking into that buffer.
 
   ```vim
   function! CloseWindowOrKillBuffer()
@@ -473,27 +473,27 @@ runtime! plugin/vimrc.vim
   nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
   ```
 
-* Set window title by default
+* Set window title by default.
 
   ```vim
   set title
   ```
 
-* Exit insert mode by presing jj or kk
+* Exit insert mode by presing jj or kk.
 
   ```vim
   inoremap jj <ESC>
   inoremap kk <ESC>
   ```
 
-* Always focus on splited window
+* Always focus on splited window.
 
   ```vim
   nnoremap <C-w>s <C-w>s<C-w>w
   nnoremap <C-w>v <C-w>v<C-w>w
   ```
 
-* Don't display the intro message on starting Vim
+* Don't display the intro message on starting Vim.
 
   ```vim
   set shortmess+=I

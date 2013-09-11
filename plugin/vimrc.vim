@@ -118,8 +118,8 @@ endif
 " so that you can undo `Ctrl-U` without undoing what you typed before it.
 inoremap <C-U> <C-G>u<C-U>
 
-" Avoid problems with fish shell.
-" ([issue](https://github.com/tpope/vim-sensible/issues/50))
+" Avoid problems with fish shell
+" ([issue](https://github.com/tpope/vim-sensible/issues/50)).
 if &shell =~# 'fish$'
   set shell=/bin/bash
 endif
@@ -145,12 +145,12 @@ set scrolloff=8
 set sidescroll=1
 set sidescrolloff=15
 
-" Set minimum window size to 79x5
+" Set minimum window size to 79x5.
 set winwidth=79
 set winheight=5
 set winminheight=5
 
-" If opening buffer, search first in opened windows
+" If opening buffer, search first in opened windows.
 set switchbuf=usetab
 
 " Hide buffers instead of asking if to save them.
@@ -160,7 +160,7 @@ set hidden
 set wrap linebreak
 set showbreak=" "
 
-" Allow easy navigation between wrapped lines
+" Allow easy navigation between wrapped lines.
 vmap j gj
 vmap k gk
 vmap $ g$
@@ -208,7 +208,7 @@ set ignorecase
 " Show mode in statusbar, not separately.
 set noshowmode
 
-" Don't ignore case when search has capital letters
+" Don't ignore case when search has capital letter
 " (although also don't ignore case by default).
 set smartcase
 
@@ -234,7 +234,7 @@ nnoremap <Right> <nop>
 noremap n nzz
 noremap N Nzz
 
-" Visually select the text that was last edited/pasted (Vimcast#26)
+" Visually select the text that was last edited/pasted (Vimcast#26).
 noremap gV `[v`]
 
 " Expand %% to path of current buffer in command mode.
@@ -257,7 +257,7 @@ inoremap <C-s> <ESC>:w<CR>
 
 " Use Q to intelligently close a window 
 " (if there are multiple windows into the same buffer)
-" or kill the buffer entirely if it's the last window looking into that buffer
+" or kill the buffer entirely if it's the last window looking into that buffer.
 function! CloseWindowOrKillBuffer()
   let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
   if matchstr(expand("%"), 'NERD') == 'NERD'
@@ -272,16 +272,16 @@ function! CloseWindowOrKillBuffer()
 endfunction
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 
-" Set window title by default
+" Set window title by default.
 set title
 
-" Exit insert mode by presing jj or kk
+" Exit insert mode by presing jj or kk.
 inoremap jj <ESC>
 inoremap kk <ESC>
 
-" Always focus on splited window
+" Always focus on splited window.
 nnoremap <C-w>s <C-w>s<C-w>w
 nnoremap <C-w>v <C-w>v<C-w>w
 
-" Don't display the intro message on starting Vim
+" Don't display the intro message on starting Vim.
 set shortmess+=I
