@@ -118,6 +118,12 @@ endif
 " so that you can undo `Ctrl-U` without undoing what you typed before it.
 inoremap <C-U> <C-G>u<C-U>
 
+" Avoid problems with fish shell.
+" ([issue](https://github.com/tpope/vim-sensible/issues/50))
+if &shell =~# 'fish$'
+  set shell=/bin/bash
+endif
+
 "" My additions
 
 " Keep flags when repeating last substitute command.

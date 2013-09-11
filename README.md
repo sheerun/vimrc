@@ -226,6 +226,15 @@ colorscheme wombat256mod
   inoremap <C-U> <C-G>u<C-U>
   ```
 
+* Avoid problems with fish shell.
+  ([issue](https://github.com/tpope/vim-sensible/issues/50))
+
+  ```vim
+  if &shell =~# 'fish$'
+    set shell=/bin/bash
+  endif
+  ```
+
 ### My additions
 
 * Keep flags when repeating last substitute command.
