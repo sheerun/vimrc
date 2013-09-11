@@ -125,13 +125,9 @@ xnoremap & :&&<CR>
 " Y yanks from the cursor to the end of line as expected. See :help Y.
 nnoremap Y y$
 
+"" My additions
 
-"" Compatible with my taste ;) (you can change them in fork)
-
-" Use more readable color scheme by default
-colorscheme wombat256mod
-
-" Create and set directories for backup and undo files.
+" Automatically create directories for backup and undo files.
 if !isdirectory(expand(s:dir))
   call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
 end

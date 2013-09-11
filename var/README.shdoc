@@ -1,30 +1,23 @@
-# Sheerun's vimrc.vim
+# vimrc.vim
 
-I am Ruby developer and this plugin is supposed to replace my `.vimrc` file.
-
-This is fork of [`vim-sensible`](https://github.com/tpope/vim-sensible), but not everyone agreed on these settings. They just reflect my (rather good) taste.
+This plugin replaces lion's share of my `.vimrc`. A superset of [`vim-sensible`](https://github.com/tpope/vim-sensible).
 
 ## Installation
 
-You can use [vundle](https://github.com/gmarik/vundle) or [pathogen](https://github.com/tpope/vim-pathogen) for installation of this plugin.
+Clone this repo to `~/.vim/plugin/vimrc`, and add following to your `~/.vimrc`:
 
-You are supposed to **fork this repository** and source it at the top of `.vimrc`:
+```vim
+set nocompatible
+let mapleader = ","
 
-    runtime! plugin/vimrc.vim
+runtime! plugin/vimrc.vim
+```
 
-You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean method of managing vim configuration.
+I recommend using [neobundle](https://github.com/Shougo/neobundle.vim) or [pathogen](https://github.com/tpope/vim-pathogen).
 
-## Features overview
-
-The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
-
-$ SHORT=1 bin/vimdoc < plugin/vimrc.vim | sed '1,/my taste/d' | tail +2
-
-## Detailed features
+## Features
 
 $ bin/vimdoc < plugin/vimrc.vim
-
-See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.
 
 ## License
 

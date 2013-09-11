@@ -1,66 +1,21 @@
-# Sheerun's vimrc.vim
+# vimrc.vim
 
-I am Ruby developer and this plugin is supposed to replace my `.vimrc` file.
-
-This is fork of [`vim-sensible`](https://github.com/tpope/vim-sensible), but not everyone agreed on these settings. They just reflect my (rather good) taste.
+This plugin replaces lion's share of my `.vimrc`. A superset of [`vim-sensible`](https://github.com/tpope/vim-sensible).
 
 ## Installation
 
-You can use [vundle](https://github.com/gmarik/vundle) or [pathogen](https://github.com/tpope/vim-pathogen) for installation of this plugin.
+Clone this repo to `~/.vim/plugin/vimrc`, and add following to your `~/.vimrc`:
 
-You are supposed to **fork this repository** and source it at the top of `.vimrc`:
+```vim
+set nocompatible
+let mapleader = ","
 
 runtime! plugin/vimrc.vim
+```
 
-You can see [my dotfiles](https://github.com/sheerun/dotfiles) for nice & clean method of managing vim configuration.
+I recommend using [neobundle](https://github.com/Shougo/neobundle.vim) or [pathogen](https://github.com/tpope/vim-pathogen).
 
-## Features overview
-
-The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
-
-* Use more readable color scheme by default
-* Create and set directories for backup and undo files.
-* Keep 8 lines above or below the cursor when scrolling.
-* Keep 15 columns next to the cursor when scrolling horizontally.
-* Set minimum window size to 79x5
-* If opening buffer, search first in opened windows
-* Hide buffers instead of asking if to save them.
-* Wrap lines by default
-* Allow easy navigation between wrapped lines
-* For autocompletion, complete as much as you can.
-* Show line numbers on the sidebar.
-* Higlight current line
-* Disable any annoying beeps on errors.
-* Don't parse modelines (google "vim modeline vulnerability").
-* Do not fold by default. But if, do it up to 3 levels.
-* Enable mouse for scrolling and window resizing.
-* Disable swap to prevent annoying messages.
-* Save up to 100 marks, enable capital marks.
-* Enable search highlighting.
-* Ignore case when searching.
-* Show mode in statusbar, not separately.
-* Don't ignore case when search has capital letters
-  (although also don't ignore case by default).
-* Use dash as word separator.
-* Add gems.tags to files searched for tags.
-* Disable output, vcs, archive, rails, temp and backup files.
-* Use arrows for scrolling instead of moving cursor.
-* Auto center on matched string.
-* Visually select the text that was last edited/pasted (Vimcast#26)
-* Expand %% to path of current buffer in command mode.
-* Automatically change cursor type in iTerm2 for insert mode.
-* Enable saving by `Ctrl-s`
-* Use Q to intelligently close a window 
-  (if there are multiple windows into the same buffer)
-  or kill the buffer entirely if it's the last window looking into that buffer
-* Enable normal regex handling
-  See http://stevelosh.com/blog/2010/09/coming-home-to-vim
-* Set window title by default
-* Exit insert mode by presing jj or kk
-* Always focus on splited window
-* Don't display the intro message on starting Vim
-
-## Detailed features
+## Features
 
 ### Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
 
@@ -280,15 +235,9 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   nnoremap Y y$
   ```
 
-### Compatible with my taste ;) (you can change them in fork)
+### My additions
 
-* Use more readable color scheme by default
-
-  ```vim
-  colorscheme wombat256mod
-  ```
-
-* Create and set directories for backup and undo files.
+* Automatically create directories for backup and undo files.
 
   ```vim
   if !isdirectory(expand(s:dir))
@@ -556,8 +505,6 @@ The same as in [`vim-sensible`](https://github.com/tpope/vim-sensible), but:
   ```vim
   set shortmess+=I
   ```
-
-See the [source](https://github.com/sheerun/vim-sensible) for the authoritative list of features.
 
 ## License
 
