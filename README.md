@@ -319,12 +319,6 @@ runtime! plugin/vimrc.vim
   set number
   ```
 
-* Higlight current line
-
-  ```vim
-  set cursorline
-  ```
-
 * Disable any annoying beeps on errors.
 
   ```vim

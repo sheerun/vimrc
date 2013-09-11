@@ -178,9 +178,6 @@ set wildmode=longest,full
 " Show line numbers on the sidebar.
 set number
 
-" Higlight current line
-set cursorline
-
 " Disable any annoying beeps on errors.
 set noerrorbells
 set visualbell
