@@ -13,12 +13,6 @@ let mapleader = ","
 runtime! plugin/vimrc.vim
 ```
 
-If you're using [neobundle](https://github.com/Shougo/neobundle.vim) or [pathogen](https://github.com/tpope/vim-pathogen), you can use included wombat color scheme. Add following to `.vimrc`:
-
-```vim
-colorscheme wombat256mod
-```
-
 ## Features
 
 ### Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
