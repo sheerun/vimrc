@@ -476,14 +476,6 @@ colorscheme wombat256mod
   nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
   ```
 
-* Enable normal regex handling
-  See http://stevelosh.com/blog/2010/09/coming-home-to-vim
-
-  ```vim
-  nnoremap / /\v
-  vnoremap / /\v
-  ```
-
 * Set window title by default
 
   ```vim
