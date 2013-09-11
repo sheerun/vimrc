@@ -118,14 +118,14 @@ endif
 " so that you can undo `Ctrl-U` without undoing what you typed before it.
 inoremap <C-U> <C-G>u<C-U>
 
+"" My additions
+
 " Keep flags when repeating last substitute command.
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
 " Y yanks from the cursor to the end of line as expected. See :help Y.
 nnoremap Y y$
-
-"" My additions
 
 " Automatically create directories for backup and undo files.
 if !isdirectory(expand(s:dir))

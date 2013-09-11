@@ -226,6 +226,8 @@ colorscheme wombat256mod
   inoremap <C-U> <C-G>u<C-U>
   ```
 
+### My additions
+
 * Keep flags when repeating last substitute command.
 
   ```vim
@@ -238,8 +240,6 @@ colorscheme wombat256mod
   ```vim
   nnoremap Y y$
   ```
-
-### My additions
 
 * Automatically create directories for backup and undo files.
 
