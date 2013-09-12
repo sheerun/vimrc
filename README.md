@@ -1,10 +1,10 @@
 # vimrc.vim
 
-This plugin replaces lion's share of my `.vimrc`. A superset of [`vim-sensible`](https://github.com/tpope/vim-sensible).
+This plugin replaces the lion's share of my `.vimrc`. It is a superset of [`vim-sensible`](https://github.com/tpope/vim-sensible).
 
 ## Installation
 
-Clone this repo to `~/.vim/plugin/vimrc`, and add following to your `~/.vimrc`:
+**Fork** this repo, clone it to `~/.vim/plugin/vimrc`, and edit your `~/.vimrc`:
 
 ```vim
 set nocompatible
