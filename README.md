@@ -4,8 +4,10 @@ This plugin replaces the lion's share of my `.vimrc`. It is a superset of [`vim-
 
 ## Installation
 
+Backup somewhere your current `~/.vim` directory, and:
+
 ```
-mkdir -p ~/.vim && git clone https://github.com/sheerun/vimrc.vim.git ~/.vim/after
+git clone https://github.com/sheerun/vimrc.git ~/.vim
 ```
 
 Your `.vimrc` should have following format:
