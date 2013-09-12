@@ -126,7 +126,6 @@ endif
 
 "" My additions
 
-
 " Keep flags when repeating last substitute command.
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
@@ -138,6 +137,9 @@ nnoremap Y y$
 if !isdirectory(expand(s:dir))
   call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
 end
+
+" Set <Leader> to `,`. You can customize it in `~/.vimrc`.
+let mapleader = ","
 
 " Use more readable color scheme by default.
 " It works well with `:set colorline` option.
