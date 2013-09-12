@@ -4,13 +4,16 @@ This plugin replaces the lion's share of my `.vimrc`. It is a superset of [`vim-
 
 ## Installation
 
-**Fork** this repo, clone it to `~/.vim/plugin/vimrc`, and edit your `~/.vimrc`:
+```
+mkdir -p ~/.vim && git clone https://github.com/sheerun/vimrc.vim.git ~/.vim/after
+```
+
+Your `.vimrc` should have following format:
 
 ```vim
-set nocompatible
-let mapleader = ","
+runtime vimrc.vim
 
-runtime! plugin/vimrc.vim
+" Your code here...
 ```
 
 ## Features
