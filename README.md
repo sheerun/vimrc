@@ -4,22 +4,22 @@ This plugin can replace the lion's share of your `.vimrc`.
 
 ## Installation
 
-Backup somewhere your current `~/.vim` directory, and:
+1. Backup somewhere your current `~/.vim` directory, and:
 
-```
-git clone https://github.com/sheerun/vimrc.git ~/.vim
-```
+  ```
+  git clone https://github.com/sheerun/vimrc.git ~/.vim
+  ```
 
-Your `.vimrc` should have following format:
+2. Your `.vimrc` should have following format:
 
-```vim
-call vimrc#before()
+  ```vim
+  call vimrc#before()
 
-" Your code here. For example:
-NeoBundle 'sheerun/vim-polyglot'
+  " Your code here. For example:
+  NeoBundle 'sheerun/vim-polyglot'
 
-call vimrc#after()
-```
+  call vimrc#after()
+  ```
 
 ## Features
 
