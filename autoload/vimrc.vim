@@ -2,6 +2,8 @@
 " Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
 " Version:      1.0
 
+function! vimrc#before(...) abort
+
 "" Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
 
 " Disable strange Vi defaults.
@@ -295,3 +297,22 @@ nnoremap <C-w>v <C-w>v<C-w>w
 
 " Don't display the intro message on starting Vim.
 set shortmess+=I
+
+" Use neobundle for package managing
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+endfunction
+
+function! vimrc#after(...) abort
+
+" Set file detection back on after updating runtimepath by NeuBundle.
+filetype plugin indent on
+
+" Check if all bundles are installed.
+NeoBundleCheck
+
+endfunction
