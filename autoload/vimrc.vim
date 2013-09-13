@@ -2,6 +2,11 @@
 " Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
 " Version:      1.0
 
+if exists("g:loaded_vimrc") || &cp
+  finish
+endif
+let g:loaded_vimrc = 1
+
 function! vimrc#before(...) abort
 
 "" Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
