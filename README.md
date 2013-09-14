@@ -21,10 +21,12 @@ This plugin can replace the lion's share of your `.vimrc`.
   call vimrc#after()
   ```
 
-## Features
+## Featuting
 
-* [`vim-sensible`](https://github.com/tpope/vim-sensible) and [carefully selected defaults](https://github.com/sheerun/vimrc.vim/blob/master/plugin/vimrc.vim#L127) similar to [janus](https://github.com/carlhuda/janus)' settings.vim
+* [`vim-sensible`](https://github.com/tpope/vim-sensible) for sensible vim defaults
+* [carefully selected defaults](https://github.com/sheerun/vimrc.vim/blob/master/plugin/vimrc.vim#L127) similar to [janus](https://github.com/carlhuda/janus)' settings.vim
 * [`neobundle.vim`](https://github.com/Shougo/neobundle.vim) for package managing
+* [`vim-polyglot`](https://github.com/sheerun/vim-polyglot) for extensive syntax support
 
 ## License
 
