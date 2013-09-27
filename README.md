@@ -13,10 +13,11 @@ This plugin can replace the lion's share of your `.vimrc`.
 2. Your `.vimrc` should have following format:
 
   ```vim
+  let mapleader = "\<space>"
   call vimrc#before()
 
   " Your code here. For example:
-  NeoBundle 'sheerun/vim-polyglot'
+  NeoBundle 'kien/ctrlp.vim'
 
   call vimrc#after()
   ```
@@ -26,7 +27,7 @@ This plugin can replace the lion's share of your `.vimrc`.
 * [`vim-sensible`](https://github.com/tpope/vim-sensible) for sensible vim defaults
 * [carefully selected defaults](https://github.com/sheerun/vimrc.vim/blob/master/plugin/vimrc.vim#L127) similar to [janus](https://github.com/carlhuda/janus)' settings.vim
 * [`neobundle.vim`](https://github.com/Shougo/neobundle.vim) for package managing
-* [`vim-polyglot`](https://github.com/sheerun/vim-polyglot) for extensive syntax support
+* [`vim-polyglot`](https://github.com/sheerun/vim-polyglot) for performant language pack
 
 ## License
 
