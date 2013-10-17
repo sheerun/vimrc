@@ -22,7 +22,7 @@ This plugin can replace the lion's share of your `.vimrc`.
   call vimrc#after()
   ```
 
-## Featuting
+## Featuring
 
 * [`vim-sensible`](https://github.com/tpope/vim-sensible) for sensible vim defaults
 * [carefully selected defaults](https://github.com/sheerun/vimrc.vim/blob/master/plugin/vimrc.vim#L127) similar to [janus](https://github.com/carlhuda/janus)' settings.vim
