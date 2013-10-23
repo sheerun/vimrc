@@ -25,7 +25,7 @@ This plugin can replace the lion's share of your `.vimrc`.
 ## Featuring
 
 * [`vim-sensible`](https://github.com/tpope/vim-sensible) for sensible vim defaults
-* [carefully selected defaults](https://github.com/sheerun/vimrc.vim/blob/master/plugin/vimrc.vim#L127) similar to [janus](https://github.com/carlhuda/janus)' settings.vim
+* [carefully selected defaults](https://github.com/sheerun/vimrc/blob/master/autoload/vimrc.vim) similar to [janus](https://github.com/carlhuda/janus)' settings.vim
 * [`neobundle.vim`](https://github.com/Shougo/neobundle.vim) for package managing
 * [`vim-polyglot`](https://github.com/sheerun/vim-polyglot) for performant language pack
 
