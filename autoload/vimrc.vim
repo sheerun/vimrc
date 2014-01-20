@@ -145,8 +145,8 @@ if !isdirectory(expand(s:dir))
   call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
 end
 
-" Set <Leader> to `,`. You can customize it in `~/.vimrc`.
-let mapleader = ","
+" Set <Leader> to `<Space>`. You can customize it in `~/.vimrc`.
+let mapleader = "<Space>"
 
 " Use more readable color scheme by default.
 " It works well with `:set colorline` option.
