@@ -235,12 +235,6 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
 
-" Use arrows for scrolling instead of moving cursor.
-nnoremap <Down> <c-e>
-nnoremap <Up> <c-y>
-nnoremap <Left> <nop>
-nnoremap <Right> <nop>
-
 " Auto center on matched string.
 noremap n nzz
 noremap N Nzz
