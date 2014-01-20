@@ -13,7 +13,7 @@ This plugin can replace the lion's share of your `.vimrc`.
 2. Your `.vimrc` should have following format:
 
   ```vim
-  let mapleader = "\<space>"
+  let mapleader = "\<Space>"
   call vimrc#before()
 
   " Your code here. For example:
