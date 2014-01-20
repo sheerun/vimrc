@@ -249,7 +249,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>
 
-" Use Q to intelligently close a window 
+" Use Q to intelligently close a window
 " (if there are multiple windows into the same buffer)
 " or kill the buffer entirely if it's the last window looking into that buffer.
 function! CloseWindowOrKillBuffer()
@@ -268,10 +268,6 @@ nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 
 " Set window title by default.
 set title
-
-" Exit insert mode by presing jj or kk.
-inoremap jj <ESC>
-inoremap kk <ESC>
 
 " Always focus on splited window.
 nnoremap <C-w>s <C-w>s<C-w>w
