@@ -180,14 +180,8 @@ set showbreak=" "
 " Allow easy navigation between wrapped lines.
 vmap j gj
 vmap k gk
-vmap $ g$
-vmap ^ g^
-vmap 0 g^
 nmap j gj
 nmap k gk
-nmap $ g$
-nmap ^ g^
-nmap 0 g^
 
 " For autocompletion, complete as much as you can.
 set wildmode=longest,full
