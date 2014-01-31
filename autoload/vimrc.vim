@@ -33,9 +33,6 @@ set backspace=indent,eol,start
 " Don't scan included files. The .tags file is more performant.
 set complete-=i
 
-" When inserting paren, jump briefly to matching one.
-set showmatch
-
 " Use 'shiftwidth' when using `<Tab>` in front of a line.
 " By default it's used only for shift commands (`<`, `>`).
 set smarttab
