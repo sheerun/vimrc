@@ -9,7 +9,7 @@ It consist of two parts:
 * [settings taken from vim-sensible plugin](https://github.com/sheerun/vimrc/blob/master/autoload/vimrc.vim#L12)
 * [little less sensible defaults I find awesome](https://github.com/sheerun/vimrc/blob/master/autoload/vimrc.vim#L131)
 
-Vimrc.vim comes with [NeoBundle](https://github.com/Shougo/neobundle.vim) to manage your Vim plugins.
+It comes with [NeoBundle](https://github.com/Shougo/neobundle.vim) for managing your Vim plugins.
 
 It also uses [vim-polyglot](https://github.com/sheerun/vim-polyglot) for solid syntax support.
 
@@ -17,7 +17,8 @@ I encourage you to read the source, it's heavily commented, each default explain
 
 ## Installation
 
-1. Backup somewhere your current `~/.vim` directory, and issue:
+This plugin is meant to automatically manage your `~/.vim` directory,
+so you need to backup somewhere your current one directory, and issue:
 
   ```
   git clone --recursive https://github.com/sheerun/vimrc.git ~/.vim
@@ -26,13 +27,23 @@ I encourage you to read the source, it's heavily commented, each default explain
 ## Sample `.vimrc`
 
   ```vim
+  " Select your Leader key
   let mapleader = "\<Space>"
+
+  " Load sensible defaults and setup NeoBundle
   call vimrc#before()
 
-  " Your bundles and settings here. For example:
+  " Define plugins you use
   NeoBundle 'kien/ctrlp.vim'
 
+  " Define your vim configuration
+  map q: :q
+
+  " Load plugins
   call vimrc#after()
+
+  " Define maps for your plugins
+  map q: :q
   ```
 
 ## License
