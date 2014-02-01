@@ -1,33 +1,39 @@
 # vimrc.vim
 
-This plugin can replace the lion's share of your `.vimrc`.
+This plugin serves as core foundation of sound vim configuration.
+
+It'll make your `~/.vimrc` **the only** source of vim configuration.
+
+It consist of two parts:
+
+* [settings taken from vim-sensible plugin](https://github.com/sheerun/vimrc/blob/master/autoload/vimrc.vim#L12)
+* [little less sensible defaults I find awesome](https://github.com/sheerun/vimrc/blob/master/autoload/vimrc.vim#L131)
+
+Vimrc.vim comes with [NeoBundle](https://github.com/Shougo/neobundle.vim) to manage your Vim plugins.
+
+It also uses [vim-polyglot](https://github.com/sheerun/vim-polyglot) for solid syntax support.
+
+I encourage you to read the source, it's heavily commented, each default explained.
 
 ## Installation
 
-1. Backup somewhere your current `~/.vim` directory, and:
+1. Backup somewhere your current `~/.vim` directory, and issue:
 
   ```
-  git clone https://github.com/sheerun/vimrc.git ~/.vim
+  git clone --recursive https://github.com/sheerun/vimrc.git ~/.vim
   ```
 
-2. Your `.vimrc` should have following format:
+## Sample `.vimrc`
 
   ```vim
   let mapleader = "\<Space>"
   call vimrc#before()
 
-  " Your code here. For example:
+  " Your bundles and settings here. For example:
   NeoBundle 'kien/ctrlp.vim'
 
   call vimrc#after()
   ```
-
-## Featuring
-
-* [`vim-sensible`](https://github.com/tpope/vim-sensible) for sensible vim defaults
-* [carefully selected defaults](https://github.com/sheerun/vimrc/blob/master/autoload/vimrc.vim) similar to [janus](https://github.com/carlhuda/janus)' settings.vim
-* [`neobundle.vim`](https://github.com/Shougo/neobundle.vim) for package managing
-* [`vim-polyglot`](https://github.com/sheerun/vim-polyglot) for performant language pack
 
 ## License
 
