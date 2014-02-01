@@ -43,7 +43,7 @@ so you need to backup somewhere your current one directory, and issue:
   call vimrc#after()
 
   " Define maps for your plugins
-  map q: :q
+  nnoremap <Leader>o :CtrlP<CR>
   ```
 
 ## License
