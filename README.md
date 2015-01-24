@@ -13,24 +13,24 @@ I encourage you to read the source, it's heavily commented, each default explain
 
 We recommend to use:
 
-1. Lightweight [vim-plug](https://github.com/junegunn/vim-plug) as plugin manager
-2. [vim-polyglot](https://github.com/sheerun/vim-polyglot) for syntax highlighting
+- Lightweight [vim-plug](https://github.com/junegunn/vim-plug) as plugin manager
+- [vim-polyglot](https://github.com/sheerun/vim-polyglot) for syntax highlighting
 
-  ```vim
-  " Select your Leader key
-  let mapleader = "\<Space>"
+```vim
+" Select your Leader key
+let mapleader = "\<Space>"
 
-  call plug#begin()
+call plug#begin()
 
-  Plug 'sheerun/vimrc'
-  Plug 'sheerun/vim-polyglot'
-  " Load other plugins
+Plug 'sheerun/vimrc'
+Plug 'sheerun/vim-polyglot'
+" Load other plugins
 
-  call plug#end()
+call plug#end()
 
-  " Define maps for your plugins
-  nnoremap <Leader>o :CtrlP<CR>
-  ```
+" Define maps for your plugins
+nnoremap <Leader>o :CtrlP<CR>
+```
 
 ## License
 
