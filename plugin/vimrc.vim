@@ -8,7 +8,7 @@ else
   let g:loaded_vimrc = 1
 end
 
-"" Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
+"" Basics
 
 " Disable strange Vi defaults.
 set nocompatible
@@ -131,7 +131,7 @@ if &shell =~# 'fish$'
   set shell=/bin/bash
 endif
 
-"" My additions
+"" Extras
 
 " Keep flags when repeating last substitute command.
 nnoremap & :&&<CR>
