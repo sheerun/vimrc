@@ -1,13 +1,12 @@
-" vimrc.vim - Plugin serving as .vimrc replacement.
+" vimrc.vim - Extension of vim-sensible plugin with less sensible defaults.
 " Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
-" Version:      1.0
+" Version:      2.0
 
 if exists("g:loaded_vimrc") || &cp
   finish
-endif
-let g:loaded_vimrc = 1
-
-function! vimrc#before(...) abort
+else
+  let g:loaded_vimrc = 1
+end
 
 "" Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
 
@@ -269,16 +268,3 @@ nnoremap <C-w>v <C-w>v<C-w>w
 
 " Don't display the intro message on starting Vim.
 set shortmess+=I
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'sheerun/vim-polyglot'
-Plug 'sjl/vitality.vim'
-
-endfunction
-
-function! vimrc#after(...) abort
-
-call plug#end()
-
-endfunction
