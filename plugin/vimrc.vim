@@ -133,6 +133,11 @@ endif
 
 "" Extras
 
+" Set monako font if using macvim
+if has("gui_macvim")
+  set guifont=Monaco:h13
+endif
+
 " Keep flags when repeating last substitute command.
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
