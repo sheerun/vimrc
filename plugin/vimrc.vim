@@ -39,9 +39,6 @@ set smarttab
 " Disable octal format for number processing.
 set nrformats-=octal
 
-" Round autoindentation. No one needs 3 spaces when you indent by two.
-set shiftround
-
 " Allow for mappings including `Esc`, while preserving
 " zero timeout after pressing it manually.
 set ttimeout
