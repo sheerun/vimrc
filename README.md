@@ -198,7 +198,7 @@ colorscheme wombat256mod
 * Enable backup and undo files by default.
 
   ```vim
-  let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+  let s:dir = has('win32') ? '$APPDATA/Vim' : isdirectory($HOME.'/Library') ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
   let &backupdir = expand(s:dir) . '/backup//'
   let &undodir = expand(s:dir) . '/undo//'
   set undofile
@@ -237,6 +237,14 @@ colorscheme wombat256mod
   ```
 
 ## Extras
+
+* Set monako font if using macvim
+
+  ```vim
+  if has("gui_macvim")
+    set guifont=Monaco:h13
+  endif
+  ```
 
 * Keep flags when repeating last substitute command.
 
@@ -496,6 +504,36 @@ colorscheme wombat256mod
     let g:ctrlp_user_command = ['.git',
       \ 'cd %s && git ls-files . -co --exclude-standard',
       \ 'find %s -type f' ]
+  ```
+
+* Make sure pasting in visual mode doesn't replace paste buffer
+
+  ```vim
+  function! RestoreRegister()
+    let @" = s:restore_reg
+    return ''
+  endfunction
+  function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
+  endfunction
+  vmap <silent> <expr> p <sid>Repl()
+  ```
+
+* Prevent common mistake of pressing q: instead :q
+
+  ```vim
+  map q: :q
+  ```
+
+* Make a simple "search" text object.
+  http://vim.wikia.com/wiki/Copy_or_change_search_hit
+  It allows for replacing search matches with cs and then /././.
+
+  ```vim
+  vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+      \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+  omap s :normal vs<CR>
   ```
 
 ## License
