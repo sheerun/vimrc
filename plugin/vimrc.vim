@@ -308,3 +308,10 @@ vmap <silent> <expr> p <sid>Repl()
 
 " Prevent common mistake of pressing q: instead :q
 map q: :q
+
+" Make a simple "search" text object.
+" http://vim.wikia.com/wiki/Copy_or_change_search_hit
+" It allows for replacing search matches with cs and then /././.
+vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+omap s :normal vs<CR>
