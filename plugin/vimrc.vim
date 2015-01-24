@@ -79,6 +79,11 @@ endif
 " Set default whitespace characters when using `:set list`
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 
+" Search upwards for tags file instead only locally
+if has('path_extra')
+  setglobal tags-=./tags tags^=./tags;
+endif
+
 " Reload unchanged files automatically.
 set autoread
 
