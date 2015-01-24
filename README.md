@@ -11,7 +11,10 @@ I encourage you to read the source, it's heavily commented, each default explain
 
 ## Installation
 
-We recommend to use lightweight [vim-plug](https://github.com/junegunn/vim-plug) as plugn manager and [vim-polyglot](https://github.com/sheerun/vim-polyglot) for syntax highlighting:
+We recommend to use:
+
+1. Lightweight [vim-plug](https://github.com/junegunn/vim-plug) as plugin manager
+2. [vim-polyglot](https://github.com/sheerun/vim-polyglot) for syntax highlighting
 
   ```vim
   " Select your Leader key
