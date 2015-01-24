@@ -79,6 +79,11 @@ endif
 " Set default whitespace characters when using `:set list`
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 
+" Delete comment character when joining commented lines
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j
+endif
+
 " Search upwards for tags file instead only locally
 if has('path_extra')
   setglobal tags-=./tags tags^=./tags;
