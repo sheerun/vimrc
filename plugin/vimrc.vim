@@ -305,3 +305,6 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
+
+" Prevent common mistake of pressing q: instead :q
+map q: :q
