@@ -21,7 +21,7 @@ colorscheme wombat256mod
 
 ## Features
 
-### Compatible with [`vim-sensible`](https://github.com/tpope/vim-sensible)
+## Basics
 
 * Disable strange Vi defaults.
 
@@ -236,7 +236,7 @@ colorscheme wombat256mod
   endif
   ```
 
-### My additions
+## Extras
 
 * Keep flags when repeating last substitute command.
 
