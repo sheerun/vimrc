@@ -13,7 +13,7 @@ I encourage you to read the source, it's heavily commented, each default explain
 
 We recommend to use lightweight [vim-plug](https://github.com/junegunn/vim-plug) as plugn manager and [vim-polyglot](https://github.com/sheerun/vim-polyglot) for syntax highlighting:
 
-  ```
+  ```vim
   " Select your Leader key
   let mapleader = "\<Space>"
 
