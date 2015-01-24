@@ -45,7 +45,7 @@ set shiftround
 " Allow for mappings including `Esc`, while preserving
 " zero timeout after pressing it manually.
 set ttimeout
-set ttimeoutlen=50
+set ttimeoutlen=100
 
 " Enable highlighted case-insensitive incremential search.
 set incsearch
