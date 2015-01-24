@@ -20,7 +20,7 @@ We recommend to use lightweight [vim-plug](https://github.com/junegunn/vim-plug)
   call plug#begin()
 
   Plug 'sheerun/vimrc'
-  Plug 'sheerun/polyglot'
+  Plug 'sheerun/vim-polyglot'
   " Load other plugins
 
   call plug#end()
