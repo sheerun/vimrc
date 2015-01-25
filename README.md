@@ -2,6 +2,43 @@
 
 This plugin replaces lion's share of my `.vimrc`. A superset of [`vim-sensible`](https://github.com/tpope/vim-sensible).
 
+It consists of two, well documented parts:
+
+* [vim-sensible defaults](#basics)
+* [extra configuration](#extras)
+
+## Installation
+
+Just include with some package manager, like:
+
+```
+Plug 'sheerun/vimrc'
+```
+
+I recommend to use:
+
+- Lightweight [vim-plug](https://github.com/junegunn/vim-plug) as plugin manager
+- [vim-polyglot](https://github.com/sheerun/vim-polyglot) for syntax highlighting
+
+Example for simple `.vimrc` file:
+
+```vim
+" Select your Leader key
+let mapleader = "\<Space>"
+
+call plug#begin()
+
+Plug 'sheerun/vimrc'
+Plug 'sheerun/vim-polyglot'
+" Load other plugins
+
+call plug#end()
+
+" Define maps for your plugins
+nnoremap <Leader>o :CtrlP<CR>
+```
+
+
 ## Installation
 
 Clone this repo to `~/.vim/plugin/vimrc`, and add following to your `~/.vimrc`:
