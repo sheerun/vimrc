@@ -17,7 +17,7 @@ Plug 'sheerun/vimrc'
 
 I recommend to use:
 
-- Lightweight [vim-plug](https://github.com/junegunn/vim-plug) as plugin manager
+- [vim-plug](https://github.com/junegunn/vim-plug) as lightweight plugin manager
 - [vim-polyglot](https://github.com/sheerun/vim-polyglot) for syntax highlighting
 
 Example for simple `.vimrc` file:
@@ -36,24 +36,6 @@ call plug#end()
 
 " Define maps for your plugins
 nnoremap <Leader>o :CtrlP<CR>
-```
-
-
-## Installation
-
-Clone this repo to `~/.vim/plugin/vimrc`, and add following to your `~/.vimrc`:
-
-```vim
-set nocompatible
-let mapleader = ","
-
-runtime! plugin/vimrc.vim
-```
-
-If you're using [neobundle](https://github.com/Shougo/neobundle.vim) or [pathogen](https://github.com/tpope/vim-pathogen), you can use included wombat color scheme. Add following to `.vimrc`:
-
-```vim
-colorscheme wombat256mod
 ```
 
 ## Features
