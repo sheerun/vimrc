@@ -289,11 +289,12 @@ else
   let g:ctrlp_user_command = ['.git',
     \ 'cd %s && git ls-files . -co --exclude-standard',
     \ 'find %s -type f' ]
-
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
 endif
+
+" Accept CtrlP selections also with <Space>
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': ['<Space>', '<CR>', '<2-LeftMouse>'],
+  \ }
 
 " Make sure pasting in visual mode doesn't replace paste buffer
 function! RestoreRegister()
