@@ -268,8 +268,8 @@ nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 set title
 
 " Always focus on splited window.
-nnoremap <C-w>s <C-w>s<C-w>w
-nnoremap <C-w>v <C-w>v<C-w>w
+set splitright
+set splitbelow
 
 " Don't display the intro message on starting Vim.
 set shortmess+=I
