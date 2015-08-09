@@ -26,6 +26,9 @@ Example for simple `.vimrc` file:
 " Select your Leader key
 let mapleader = "\<Space>"
 
+" vimrc includes this additional color scheme
+colorscheme wombat256mod
+
 call plug#begin()
 
 Plug 'sheerun/vimrc'

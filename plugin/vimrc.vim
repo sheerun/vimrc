@@ -150,10 +150,6 @@ if !isdirectory(expand(s:dir))
   call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
 end
 
-" Use more readable color scheme by default.
-" It works well with `:set colorline` option.
-colorscheme wombat256mod
-
 " Highlight line under cursor. It helps with navigation.
 set cursorline
 
