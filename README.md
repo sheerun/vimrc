@@ -157,12 +157,10 @@ nnoremap <Leader>o :CtrlP<CR>
   set display+=lastline
   ```
 
-* Force utf-8 encoding in GVim
+* Force utf-8 encoding
 
   ```vim
-  if &encoding ==# 'latin1' && has('gui_running')
-    set encoding=utf-8
-  endif
+  set encoding=utf-8
   ```
 
 * Set default whitespace characters when using `:set list`

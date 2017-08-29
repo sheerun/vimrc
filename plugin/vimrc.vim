@@ -71,10 +71,8 @@ set wildmenu
 " When 'wrap' is on, display last line even if it doesn't fit.
 set display+=lastline
 
-" Force utf-8 encoding in GVim
-if &encoding ==# 'latin1' && has('gui_running')
-  set encoding=utf-8
-endif
+" Force utf-8 encoding
+set encoding=utf-8
 
 " Set default whitespace characters when using `:set list`
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
