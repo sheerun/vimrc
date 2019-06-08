@@ -102,7 +102,7 @@ set tabpagemax=50
 " Always save upper case variables to viminfo file.
 set viminfo^=!
 
-" Enable backup and undo files by default.
+" Enable undofile and set undodir and backupdir
 let s:dir = has('win32') ? '$APPDATA/Vim' : isdirectory($HOME.'/Library') ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
 let &backupdir = expand(s:dir) . '/backup//'
 let &undodir = expand(s:dir) . '/undo//'
@@ -310,3 +310,7 @@ map q: :q
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 omap s :normal vs<CR>
+
+" Disable writebackup because some tools have issues with it:
+" https://github.com/neoclide/coc.nvim/issues/649
+set nowritebackup

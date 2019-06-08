@@ -556,6 +556,13 @@ nnoremap <Leader>o :CtrlP<CR>
   omap s :normal vs<CR>
   ```
 
+* Disable writebackup because some tools have issues with it:
+  https://github.com/neoclide/coc.nvim/issues/649
+
+  ```vim
+  set nowritebackup
+  ```
+
 ## License
 
 The same terms as Vim itself. See `:help license`.
