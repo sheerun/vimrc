@@ -99,8 +99,10 @@ nnoremap <Leader>o :CtrlP<CR>
   zero timeout after pressing it manually.
 
   ```vim
-  set ttimeout
-  set ttimeoutlen=100
+  if !has('nvim') && &ttimeoutlen == -1
+    set ttimeout
+    set ttimeoutlen=100
+  endif
   ```
 
 * Enable highlighted case-insensitive incremential search.
@@ -120,7 +122,9 @@ nnoremap <Leader>o :CtrlP<CR>
 * Use `Ctrl-L` to clear the highlighting of :set hlsearch.
 
   ```vim
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+  if maparg('<C-L>', 'n') ==# ''
+    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+  endif
   ```
 
 * Always show window statuses, even if there's only one.
@@ -133,12 +137,6 @@ nnoremap <Leader>o :CtrlP<CR>
 
   ```vim
   set ruler
-  ```
-
-* Show the size of block one selected in visual mode.
-
-  ```vim
-  set showcmd
   ```
 
 * Autocomplete commands using nice menu in place of window status.
@@ -186,12 +184,6 @@ nnoremap <Leader>o :CtrlP<CR>
 
   ```vim
   set autoread
-  ```
-
-* Support all kind of EOLs by default.
-
-  ```vim
-  set fileformats+=mac
   ```
 
 * Increase history size to 1000 items.

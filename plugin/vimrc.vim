@@ -1,12 +1,11 @@
 " vimrc.vim - Extension of vim-sensible plugin with less sensible defaults.
 " Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
-" Version:      2.0
 
-if exists("g:loaded_vimrc") || &cp
+if exists('g:loaded_vimrc') || &compatible
   finish
 else
-  let g:loaded_vimrc = 1
-end
+  let g:loaded_vimrc = 'yes'
+endif
 
 "" Basics
 
@@ -41,8 +40,11 @@ set nrformats-=octal
 
 " Allow for mappings including `Esc`, while preserving
 " zero timeout after pressing it manually.
-set ttimeout
-set ttimeoutlen=100
+" (it only nvim needs fixing this)
+if !has('nvim') && &ttimeoutlen == -1
+  set ttimeout
+  set ttimeoutlen=100
+endif
 
 " Enable highlighted case-insensitive incremential search.
 set incsearch
@@ -53,16 +55,15 @@ set shiftwidth=2
 set expandtab
 
 " Use `Ctrl-L` to clear the highlighting of :set hlsearch.
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
 
 " Always show window statuses, even if there's only one.
 set laststatus=2
 
 " Show the line and column number of the cursor position.
 set ruler
-
-" Show the size of block one selected in visual mode.
-set showcmd
 
 " Autocomplete commands using nice menu in place of window status.
 " Enable `Ctrl-N` and `Ctrl-P` to scroll through matches.
@@ -90,9 +91,6 @@ endif
 " Reload unchanged files automatically.
 set autoread
 
-" Support all kind of EOLs by default.
-set fileformats+=mac
-
 " Increase history size to 1000 items.
 set history=1000
 
@@ -109,10 +107,9 @@ let &undodir = expand(s:dir) . '/undo//'
 set undofile
 
 " Allow color schemes to do bright colors without forcing bold.
-if &t_Co == 8 && $TERM !~# '^linux'
+if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
-
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -125,7 +122,7 @@ inoremap <C-U> <C-G>u<C-U>
 
 " Avoid problems with fish shell
 " ([issue](https://github.com/tpope/vim-sensible/issues/50)).
-if &shell =~# 'fish$'
+if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
   set shell=/bin/bash
 endif
 
