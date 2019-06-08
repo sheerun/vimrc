@@ -545,6 +545,12 @@ nnoremap <Leader>o :CtrlP<CR>
   set nowritebackup
   ```
 
+* Reduce updatetime from 4000 to 300 to avoid issues with coc.nvim
+
+  ```vim
+  set updatetime=300
+  ```
+
 * Use more readable color scheme by default (wombat256mod)
 
 ## License

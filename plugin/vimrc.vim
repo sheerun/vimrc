@@ -312,6 +312,9 @@ omap s :normal vs<CR>
 " https://github.com/neoclide/coc.nvim/issues/649
 set nowritebackup
 
+" Reduce updatetime from 4000 to 300 to avoid issues with coc.nvim
+set updatetime=300
+
 "" Color Scheme
 
 " Vim color file
