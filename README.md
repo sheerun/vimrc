@@ -26,9 +26,6 @@ Example for simple `.vimrc` file:
 " Select your Leader key
 let mapleader = "\<Space>"
 
-" vimrc includes this additional color scheme
-colorscheme wombat256mod
-
 call plug#begin()
 
 Plug 'sheerun/vimrc'
@@ -285,13 +282,6 @@ nnoremap <Leader>o :CtrlP<CR>
   if !isdirectory(expand(s:dir))
     call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
   end
-  ```
-
-* Use more readable color scheme by default.
-  It works well with `:set colorline` option.
-
-  ```vim
-  colorscheme wombat256mod
   ```
 
 * Highlight line under cursor. It helps with navigation.
@@ -562,6 +552,8 @@ nnoremap <Leader>o :CtrlP<CR>
   ```vim
   set nowritebackup
   ```
+
+* Use more readable color scheme by default (wombat256mod)
 
 ## License
 
