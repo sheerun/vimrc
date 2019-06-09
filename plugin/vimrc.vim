@@ -315,6 +315,12 @@ set nowritebackup
 " Reduce updatetime from 4000 to 300 to avoid issues with coc.nvim
 set updatetime=300
 
+" Auto reload if file was changed somewhere else (for autoread)
+au CursorHold * checktime
+
+" Enable loading filetype plugins
+filetype plugin on
+
 "" Color Scheme
 
 " Vim color file

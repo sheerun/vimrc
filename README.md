@@ -551,6 +551,18 @@ nnoremap <Leader>o :CtrlP<CR>
   set updatetime=300
   ```
 
+* Auto reload if file was changed somewhere else (for autoread)
+
+  ```vim
+  au CursorHold * checktime
+  ```
+
+* Enable loading filetype plugins
+
+  ```vim
+  filetype plugin on
+  ```
+
 * Use more readable color scheme by default (wombat256mod)
 
 ## License
