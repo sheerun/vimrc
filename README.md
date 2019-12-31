@@ -563,6 +563,16 @@ nnoremap <Leader>o :CtrlP<CR>
   filetype plugin on
   ```
 
+* Disable signcolumn (instead we're highlighting text in red or yellow)
+
+  ```vim
+  if has("patch-8.1.1564")
+    set signcolumn=number
+  else
+    set signcolumn=no
+  endif
+  ```
+
 * Use more readable color scheme by default (wombat256mod)
 
 ## License
