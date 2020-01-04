@@ -29,13 +29,14 @@ let mapleader = "\<Space>"
 call plug#begin()
 
 Plug 'sheerun/vimrc'
-Plug 'sheerun/vim-polyglot'
+
 " Load other plugins
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 call plug#end()
 
 " Define maps for your plugins
-nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>o :FZF<CR>
 ```
 
 ## Features
