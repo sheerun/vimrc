@@ -321,11 +321,9 @@ au CursorHold * checktime
 " Enable loading filetype plugins
 filetype plugin on
 
-" Disable signcolumn (instead we're highlighting text in red or yellow)
+" Merge signcolumn with number line (if supported)
 if has("patch-8.1.1564")
   set signcolumn=number
-else
-  set signcolumn=no
 endif
 
 "" Color Scheme
