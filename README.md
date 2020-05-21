@@ -455,26 +455,6 @@ nnoremap <Leader>o :FZF<CR>
   inoremap <C-s> <ESC>:w<CR>
   ```
 
-* Use Q to intelligently close a window
-  (if there are multiple windows into the same buffer)
-  or kill the buffer entirely if it's the last window looking into that buffer.
-
-  ```vim
-  function! CloseWindowOrKillBuffer()
-    let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
-    if matchstr(expand("%"), 'NERD') == 'NERD'
-      wincmd c
-      return
-    endif
-    if number_of_windows_to_this_buffer > 1
-      wincmd c
-    else
-      bdelete
-    endif
-  endfunction
-  nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
-  ```
-
 * Set window title by default.
 
   ```vim
@@ -492,21 +472,6 @@ nnoremap <Leader>o :FZF<CR>
 
   ```vim
   set shortmess+=I
-  ```
-
-* Use Silver Searcher for CtrlP plugin (if available)
-  Fallback to git ls-files for fast listing.
-  Because we use fast strategies, disable caching.
-
-  ```vim
-  let g:ctrlp_use_caching = 0
-  if executable('ag')
-      set grepprg=ag\ --nogroup\ --nocolor
-      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  else
-    let g:ctrlp_user_command = ['.git',
-      \ 'cd %s && git ls-files . -co --exclude-standard',
-      \ 'find %s -type f' ]
   ```
 
 * Make sure pasting in visual mode doesn't replace paste buffer
