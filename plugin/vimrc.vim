@@ -394,3 +394,18 @@ hi! link NonText LineNr
 hi! link SignColumn LineNr
 hi! link CocErrorHighlight ErrorMsg
 hi! link CocWarningHighlight WarningMsg
+
+let g:lightline = {
+      \ 'colorscheme': 'powerlineish',
+      \ 'active': {
+      \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
+      \   'right': [ [ 'gitbranch' ], [ 'filetype' ]]
+      \ },
+      \ 'component': {
+      \   'filetype': '%{&filetype}'
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \ },
+      \ }
+

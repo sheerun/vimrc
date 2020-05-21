@@ -539,6 +539,8 @@ nnoremap <Leader>o :FZF<CR>
 
 * Use more readable color scheme by default (wombat256mod)
 
+* Setup lightline to theme compatible with above
+
 ## License
 
 The same terms as Vim itself. See `:help license`.
