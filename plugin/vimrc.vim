@@ -294,3 +294,16 @@ endif
 if !exists("g:colors_name")
   colorscheme default
 endif
+
+if !exists("g:lightline")
+  let g:lightline = { 'colorscheme': 'powerlineish' }
+end
+
+if !has_key(g:lightline, 'active')
+  let g:lightline['active'] = {
+  \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
+  \   'right': [ [ 'gitbranch' ], [ 'filetype' ]]
+  \ }
+  let g:lightline['component'] = { 'filetype': '%{&filetype}' }
+  let g:lightline['component_function'] = { 'gitbranch': 'fugitive#head' }
+endif
