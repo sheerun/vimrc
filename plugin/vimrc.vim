@@ -302,7 +302,7 @@ end
 if !has_key(g:lightline, 'active')
   let g:lightline['active'] = {
   \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
-  \   'right': [ [ 'gitbranch' ], [ 'filetype' ]]
+  \   'right': [ [], [ 'gitbranch' ], [ 'filetype' ]]
   \ }
   let g:lightline['component'] = { 'filetype': '%{&filetype}' }
   let g:lightline['component_function'] = { 'gitbranch': 'fugitive#head' }
