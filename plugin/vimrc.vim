@@ -252,6 +252,10 @@ set splitbelow
 " Don't display the intro message on starting Vim.
 set shortmess+=I
 
+" Allow for easy copying and pasting
+vnoremap <silent> y y`]
+nnoremap <silent> p p`]
+
 " Make sure pasting in visual mode doesn't replace paste buffer
 function! RestoreRegister()
   let @" = s:restore_reg
