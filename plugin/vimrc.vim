@@ -14,11 +14,17 @@ set nocompatible
 
 " Turn on filetype plugins (:help filetype-plugin).
 if has('autocmd')
-  filetype plugin indent on
+  if !exists("did_load_filetypes")
+    filetype plugin on
+  endif
+
+  if !exists("did_indent_on")
+    filetype indent on
+  endif
 endif
 
 " Enable syntax highlighting.
-if has('syntax')
+if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
@@ -286,9 +292,6 @@ set updatetime=300
 
 " Auto reload if file was changed somewhere else (for autoread)
 au CursorHold * checktime
-
-" Enable loading filetype plugins
-filetype plugin on
 
 " Merge signcolumn with number line (if supported)
 if has("patch-8.1.1564")
