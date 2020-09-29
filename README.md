@@ -53,14 +53,20 @@ nnoremap <Leader>o :FZF<CR>
 
   ```vim
   if has('autocmd')
-    filetype plugin indent on
+    if !exists("did_load_filetypes")
+      filetype plugin on
+    endif
+
+    if !exists("did_indent_on")
+      filetype indent on
+    endif
   endif
   ```
 
 * Enable syntax highlighting.
 
   ```vim
-  if has('syntax')
+  if has('syntax') && !exists('g:syntax_on')
     syntax enable
   endif
   ```
