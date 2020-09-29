@@ -25,14 +25,17 @@ if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
+" Enable default theme if some other is not set
 if !exists("g:colors_name")
   colorscheme default
 endif
 
+" Change default theme for lightline to match default for colorscheme
 if !exists("g:lightline")
   let g:lightline = { 'colorscheme': 'powerlineish' }
 end
 
+" Also set better lightline layout
 if !has_key(g:lightline, 'active')
   let g:lightline['active'] = {
   \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
