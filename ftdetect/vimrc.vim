@@ -1,6 +1,11 @@
 " Disable strange Vi defaults.
 set nocompatible
 
+" Set mapleader to space by default
+if !exists("mapleader")
+  let mapleader = "\<Space>"
+endif
+
 " Autoindent when starting new line, or using `o` or `O`.
 set autoindent
 
@@ -89,6 +94,10 @@ set undofile
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
+
+if &t_Co >= 256
+  set termguicolors
+end
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -270,4 +279,3 @@ au CursorHold * checktime
 if has("patch-8.1.1564")
   set signcolumn=number
 endif
-
