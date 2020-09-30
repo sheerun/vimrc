@@ -10,14 +10,8 @@ endif
 "" Basics
 
 " Turn on filetype plugins (:help filetype-plugin).
-if has('autocmd')
-  if !exists("did_load_filetypes")
-    filetype plugin on
-  endif
-
-  if !exists("did_indent_on")
-    filetype indent on
-  endif
+if has('autocmd') && !(exists("did_load_filetypes") && exists("did_indent_on"))
+  filetype plugin indent on
 endif
 
 " Enable syntax highlighting.
