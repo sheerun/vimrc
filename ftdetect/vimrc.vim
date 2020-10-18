@@ -36,7 +36,6 @@ set incsearch
 " Indent using two spaces.
 set tabstop=2
 set shiftwidth=2
-set expandtab
 
 " Use `Ctrl-L` to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
