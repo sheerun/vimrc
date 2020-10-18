@@ -72,10 +72,10 @@ set wildmenu
 
 " Keep 5 columns next to the cursor when scrolling horizontally.
 if !&scrolloff
-	set scrolloff=1
+  set scrolloff=1
 endif
 if !&sidescrolloff
-	set sidescrolloff=5
+  set sidescrolloff=5
 endif
 
 " When 'wrap' is on, display last line even if it doesn't fit.
@@ -86,7 +86,7 @@ set encoding=utf-8
 
 " Set default whitespace characters when using `:set list`
 if &listchars ==# 'eol:$'
-	set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 
 " Delete comment character when joining commented lines
@@ -103,7 +103,7 @@ endif
 " Fix issues with fish shell
 " https://github.com/tpope/vim-sensible/issues/50
 if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
-	set shell=/bin/bash
+  set shell=/bin/bash
 endif
 
 " Reload unchanged files automatically.
@@ -111,17 +111,17 @@ set autoread
 
 " Increase history size to 1000 items.
 if &history < 1000
-	set history=1000
+  set history=1000
 endif
 
 " Allow for up to 50 opened tabs on Vim start.
 if &tabpagemax < 50
-	set tabpagemax=50
+  set tabpagemax=50
 endif
 
 " Always save upper case variables to viminfo file.
 if !empty(&viminfo)
-	set viminfo^=!
+  set viminfo^=!
 endif
 
 " Don't save options in sessions and views
@@ -130,7 +130,7 @@ set viewoptions-=options
 
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^Eterm'
-	set t_Co=16
+  set t_Co=16
 endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
@@ -141,7 +141,7 @@ endif
 " `Ctrl-U` in insert mode deletes a lot. Use `Ctrl-G` u to first break undo,
 " so that you can undo `Ctrl-U` without undoing what you typed before it.
 if empty(mapcheck('<C-U>', 'i'))
-	inoremap <C-U> <C-G>u<C-U>
+  inoremap <C-U> <C-G>u<C-U>
 endif
 
 " Avoid problems with fish shell
@@ -160,8 +160,8 @@ end
 
 " Indent using two spaces.
 if &tabstop == 8 && &shiftwidth == 8
-	set tabstop=2
-	set shiftwidth=2
+  set tabstop=2
+  set shiftwidth=2
 endif
 
 " Enable undofile and set undodir and backupdir
@@ -312,7 +312,7 @@ map q: :q
 " http://vim.wikia.com/wiki/Copy_or_change_search_hit
 " It allows for replacing search matches with cs and then /././.
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
-    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+      \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 omap s :normal vs<CR>
 
 " Disable writebackup because some tools have issues with it:
@@ -343,9 +343,9 @@ end
 " Also set better lightline layout
 if !has_key(g:lightline, 'active')
   let g:lightline['active'] = {
-  \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
-  \   'right': [ [], [ 'gitbranch' ], [ 'filetype' ]]
-  \ }
+        \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
+        \   'right': [ [], [ 'gitbranch' ], [ 'filetype' ]]
+        \ }
   let g:lightline['component'] = { 'filetype': '%{&filetype}' }
   let g:lightline['component_function'] = { 'gitbranch': 'fugitive#head' }
 endif
