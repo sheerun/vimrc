@@ -7,26 +7,16 @@ else
   let g:loaded_vimrc = 'yes'
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
-"" Basics (from vim-sensible)
-
-" Turn on filetype plugins (:help filetype-plugin).
-if has('autocmd') && !(exists("did_load_filetypes") && exists("did_indent_on"))
-  filetype plugin indent on
-endif
-
-" Enable syntax highlighting.
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
+" Set mapleader to space by default, early so all mappings by plugins are set
+if !exists("mapleader")
+  let mapleader = "\<Space>"
 endif
 
 " Disable strange Vi defaults.
 set nocompatible
 
-" Set mapleader to space by default
-if !exists("mapleader")
-  let mapleader = "\<Space>"
-endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+"" Basics (from vim-sensible)
 
 " Autoindent when starting new line, or using `o` or `O`.
 set autoindent
@@ -46,7 +36,7 @@ set nrformats-=octal
 
 " Allow for mappings including `Esc`, while preserving
 " zero timeout after pressing it manually.
-" (it only nvim needs fixing this)
+" (only vim needs a fix for this)
 if !has('nvim') && &ttimeoutlen == -1
   set ttimeout
   set ttimeoutlen=100
@@ -55,7 +45,7 @@ endif
 " Enable highlighted case-insensitive incremential search.
 set incsearch
 
-" Use `Ctrl-L` to clear the highlighting of :set hlsearch.
+" Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
@@ -96,14 +86,13 @@ endif
 
 " Search upwards for tags file instead only locally
 if has('path_extra')
-  setglobal tags-=./tags tags^=./tags;
+  setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
-" Use bash as shell for POSIX compatibility
 " Fix issues with fish shell
 " https://github.com/tpope/vim-sensible/issues/50
 if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
-  set shell=/bin/bash
+  set shell=/usr/bin/env\ bash
 endif
 
 " Reload unchanged files automatically.
@@ -144,10 +133,8 @@ if empty(mapcheck('<C-U>', 'i'))
   inoremap <C-U> <C-G>u<C-U>
 endif
 
-" Avoid problems with fish shell
-" ([issue](https://github.com/tpope/vim-sensible/issues/50)).
-if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
-  set shell=/bin/bash
+if empty(mapcheck('<C-W>', 'i'))
+  inoremap <C-W> <C-G>u<C-W>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
