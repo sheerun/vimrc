@@ -157,6 +157,11 @@ let &backupdir = expand(s:dir) . '/backup//'
 let &undodir = expand(s:dir) . '/undo//'
 set undofile
 
+" Automatically create directories for backup and undo files.
+if !isdirectory(expand(s:dir))
+  call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
+end
+
 " Set monako font if using macvim
 if has("gui_macvim")
   set guifont=Monaco:h13
@@ -168,11 +173,6 @@ xnoremap & :&&<CR>
 
 " Y yanks from the cursor to the end of line as expected. See :help Y.
 nnoremap Y y$
-
-" Automatically create directories for backup and undo files.
-if !isdirectory(expand(s:dir))
-  call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
-end
 
 " Highlight line under cursor. It helps with navigation.
 set cursorline
@@ -222,8 +222,25 @@ set nofoldenable
 " Enable mouse for scrolling and window resizing.
 set mouse=a
 
-" Disable swap to prevent annoying messages.
-set noswapfile
+" This is needed to avoid swapfile warning when auto-reloading
+set shortmess+=A
+
+" Avoids swapfiles in current directory
+if &directory =~# '^\.,'
+  if !empty($HOME)
+    if has('win32')
+      let &directory = expand('$HOME/vimfiles') . '//,' . &directory
+    else
+      let &directory = expand('$HOME/.vim') . '//,' . &directory
+    endif
+  endif
+  if !empty($XDG_DATA_HOME)
+    let &directory = expand('$XDG_DATA_HOME') . '//,' . &directory
+  endif
+  if has('macunix')
+    let &directory = expand('$HOME/Library/Autosave Information') . '//,' . &directory
+  endif
+endif
 
 " Save up to 100 marks, enable capital marks.
 set viminfo='100,f1
