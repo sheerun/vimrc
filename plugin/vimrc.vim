@@ -328,7 +328,7 @@ set nowritebackup
 set updatetime=300
 
 " Auto reload if file was changed somewhere else (for autoread)
-au CursorHold * checktime
+au FocusGained,BufEnter,CursorHold,CursorHoldI * if !bufexists("[Command Line]") | checktime | endif
 
 " Merge signcolumn with number line (if supported)
 if has("patch-8.1.1564")
